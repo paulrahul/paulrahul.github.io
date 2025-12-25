@@ -233,7 +233,7 @@
   }
 
   .section {
-    margin-top: 2em;
+    margin-top: 1em;
   }
 
   .section__title {
@@ -371,6 +371,23 @@
     background-color: transparent;
     font-size: 1.8rem;
     transition: transform 0.2s ease-in-out;
+  }
+
+  .project__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 0.5rem 0 1rem;
+    justify-content: center;
+  }
+
+  .project__tag {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.75rem;
+    border-radius: 999px;
+    background: var(--clr-primary);
+    color: var(--clr-bg);
+    white-space: nowrap;
   }
 
   @media (max-width: 600px) {
