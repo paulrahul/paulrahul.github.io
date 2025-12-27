@@ -71,11 +71,21 @@ function createEl(tag, className, text) {
 	return el;
 }
 
+let activeTags = new Set();
+
 function renderProjects(projects) {
 	const grid = document.querySelector(".projects__grid");
 	if (!grid) return;
 
-	projects.forEach(project => {
+	grid.innerHTML = "";
+
+	const filtered = activeTags.size === 0
+    ? projectsData
+    : projectsData.filter(p =>
+        p.tags.some(tag => activeTags.has(tag))
+      );
+
+	filtered.forEach(project => {
 	  const projectDiv = createEl("div", "project");
 	  projectDiv.tabIndex = 0;
 
@@ -85,13 +95,15 @@ function renderProjects(projects) {
 	  const h4 = createEl("h4", null, project.title);
 
 	  const figure = createEl("figure", "image is-3by2");
-	  const img = document.createElement("img");
-	  img.src = project.image;
-	//   if (project.imageFit) {
-	// 	img.style.objectFit = project.imageFit;
-	//   }
-	  img.style.objectFit = "contain";
-	  figure.appendChild(img);
+	  if (project.image) {
+		const img = document.createElement("img");
+		img.src = project.image;
+	  //   if (project.imageFit) {
+	  // 	img.style.objectFit = project.imageFit;
+	  //   }
+		img.style.objectFit = "contain";
+		figure.appendChild(img);
+	  }
 
 	  const h5 = createEl("h5", null, project.tagline);
 
@@ -99,6 +111,11 @@ function renderProjects(projects) {
 	  if (project.tags) {
 		project.tags.forEach(tag => {
 		  const tagSpan = createEl("span", "project__tag", tag);
+		  tagSpan.addEventListener("click", (e) => {
+			e.stopPropagation();
+			toggleTag(tag);
+		  });
+
 		  tagsContainer.appendChild(tagSpan);
 		});
 	  }
@@ -108,19 +125,27 @@ function renderProjects(projects) {
 		stackUl.appendChild(createEl("li", "project__stack-item", tech));
 	  });
 
-	  const sourceLink = document.createElement("a");
-	  sourceLink.href = project.sourceUrl;
-	  sourceLink.className = "link link--icon";
-	  sourceLink.setAttribute("aria-label", "source code");
-	  sourceLink.innerHTML = `<i class="fab fa-github"></i>`;
+	  content.append(h4, figure, h5, tagsContainer, stackUl);
 
-	  const liveLink = document.createElement("a");
-	  liveLink.href = project.liveUrl;
-	  liveLink.className = "link link--icon";
-	  liveLink.setAttribute("aria-label", "live preview");
-	  liveLink.innerHTML = `<i class="fas fa-external-link-alt"></i>`;
+	  if (project.sourceUrl) {
+		const sourceLink = document.createElement("a");
+		sourceLink.href = project.sourceUrl;
+		sourceLink.className = "link link--icon";
+		sourceLink.setAttribute("aria-label", "source code");
+		sourceLink.innerHTML = `<i class="fab fa-github"></i>`;
 
-	  content.append(h4, figure, h5, tagsContainer, stackUl, sourceLink, liveLink);
+		content.append(sourceLink);
+	  }
+
+	  if (project.liveUrl) {
+		const liveLink = document.createElement("a");
+		liveLink.href = project.liveUrl;
+		liveLink.className = "link link--icon";
+		liveLink.setAttribute("aria-label", "live preview");
+		liveLink.innerHTML = `<i class="fas fa-external-link-alt"></i>`;
+
+		content.append(liveLink);
+	  }
 
 	  /* ---------- project__alt-content ---------- */
 	  const alt = createEl("div", "project__alt-content");
@@ -161,8 +186,40 @@ function renderSkills(skills) {
 	});
 }
 
+function renderActiveTags() {
+	const container = document.querySelector(".active-filters");
+	container.innerHTML = "";
+
+	activeTags.forEach(tag => {
+	  const el = document.createElement("div");
+	  el.className = "active-filter";
+	  el.innerHTML = `${tag} <span>✕</span>`;
+
+	  el.onclick = () => {
+		activeTags.delete(tag);
+		updateUI();
+	  };
+
+	  container.appendChild(el);
+	});
+}
+
+function toggleTag(tag) {
+	if (activeTags.has(tag)) {
+	  activeTags.delete(tag);
+	} else {
+	  activeTags.add(tag);
+	}
+	updateUI();
+}
+
+function updateUI() {
+	renderActiveTags();
+	renderProjects();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
-	renderProjects(projectsData);
+	updateUI();
 
 	renderSkills(skillsData);
 });

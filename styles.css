@@ -381,6 +381,10 @@
     justify-content: center;
   }
 
+  .project__tag:hover {
+    background: #1f5f8b;
+  }
+
   .project__tag {
     padding: 0.25rem 0.65rem;
     font-size: 0.75rem;
@@ -388,6 +392,27 @@
     background: var(--clr-primary);
     color: var(--clr-bg);
     white-space: nowrap;
+  }
+
+  .active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .active-filter {
+    background: #222;
+    color: white;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+
+  .active-filter span {
+    margin-left: 0.4rem;
+    font-weight: bold;
   }
 
   @media (max-width: 600px) {
