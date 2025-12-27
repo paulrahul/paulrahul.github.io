@@ -141,6 +141,8 @@ function renderProjects(projects) {
 		const liveLink = document.createElement("a");
 		liveLink.href = project.liveUrl;
 		liveLink.className = "link link--icon";
+		liveLink.target = "_blank";
+		liveLink.rel = "noopener noreferrer";
 		liveLink.setAttribute("aria-label", "live preview");
 		liveLink.innerHTML = `<i class="fas fa-external-link-alt"></i>`;
 
@@ -151,8 +153,22 @@ function renderProjects(projects) {
 	  const alt = createEl("div", "project__alt-content");
 	  alt.hidden = true;
 
-	  const p = createEl("p", null, project.description);
-	  alt.appendChild(p);
+	  if (Array.isArray(project.description)) {
+		const ul = document.createElement("ul");
+
+		project.description.forEach(item => {
+		  const li = document.createElement("li");
+		  li.textContent = item;
+		  ul.appendChild(li);
+		});
+
+		alt.appendChild(ul);
+	  } else {
+		// fallback for legacy string descriptions
+		const p = document.createElement("p");
+		p.textContent = project.description;
+		alt.appendChild(p);
+	  }
 
 	  projectDiv.append(content, alt);
 	  projectDiv.addEventListener("click", (e) => {
@@ -213,6 +229,69 @@ function toggleTag(tag) {
 	updateUI();
 }
 
+function renderExperience(experiences) {
+	const container = document.querySelector(".experience__list");
+	if (!container) return;
+
+	experiences.forEach(exp => {
+	  const card = document.createElement("div");
+	  card.className = "experience__card";
+
+	  // Header
+	  const header = document.createElement("div");
+	  header.className = "experience__header";
+
+	  const logo = document.createElement("div");
+	  logo.className = "experience__logo";
+	  logo.innerHTML = `<img src="${exp.logo}" alt="${exp.company} logo">`;
+
+	  const meta = document.createElement("div");
+	  meta.className = "experience__meta";
+
+	  const title = document.createElement("h4");
+	  title.textContent = exp.company;
+	  const location = document.createElement("h5");
+	  location.textContent = exp.location;
+
+	  const subtitle = document.createElement("p");
+	  subtitle.className = "experience__role";
+	  subtitle.textContent = `${exp.role} — ${exp.start} to ${exp.end}`;
+
+	  meta.append(title, location, subtitle);
+	  header.append(logo, meta);
+
+	  // Content
+	  const content = document.createElement("div");
+	  content.className = "experience__content";
+
+	  const desc = document.createElement("p");
+	  desc.textContent = exp.description;
+
+	  const list = document.createElement("ul");
+	  exp.achievements.forEach(item => {
+		const li = document.createElement("li");
+		li.textContent = item;
+		list.appendChild(li);
+	  });
+
+	  const tags = document.createElement("div");
+	  tags.className = "experience__tags";
+
+	  exp.tags.forEach(tag => {
+		const span = document.createElement("span");
+		span.className = "experience__tag";
+		span.textContent = tag;
+		tags.appendChild(span);
+	  });
+
+	  content.append(desc, list, tags);
+
+	//   content.append(desc, list);
+	  card.append(header, content);
+	  container.appendChild(card);
+	});
+}
+
 function updateUI() {
 	renderActiveTags();
 	renderProjects();
@@ -222,4 +301,6 @@ document.addEventListener("DOMContentLoaded", () => {
 	updateUI();
 
 	renderSkills(skillsData);
+
+	renderExperience(experienceData);
 });

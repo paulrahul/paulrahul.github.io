@@ -334,6 +334,16 @@
     margin-left: 0.5em;
   }
 
+  .project__alt-content ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+  }
+
+  .project__alt-content li {
+    text-align: left;
+    margin-bottom: 0.4rem;
+  }
+
   .skills__list {
     max-width: 450px;
     width: 95%;
@@ -413,6 +423,70 @@
   .active-filter span {
     margin-left: 0.4rem;
     font-weight: bold;
+  }
+
+  .experience__card {
+    background: var(--clr-bg-alt);
+    box-shadow: var(--shadow);
+    padding: 2em;
+    margin-bottom: 2em;
+  }
+
+  .experience__header {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .experience__logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+
+  .experience__meta {
+    display: ruby;
+    flex-direction: column;
+  }
+
+  .experience__role {
+    font-size: 1rem;
+    color: var(--clr-fg-alt);
+  }
+
+  .experience__date {
+    font-size: 0.85rem;
+    color: var(--clr-fg);
+  }
+
+  .experience__content {
+    margin-top: 1em;
+  }
+
+  .experience__content ul {
+    list-style: disc;
+    margin: 0.8em 0;
+    padding-left: 1.2em;
+  }
+
+  .experience__content li {
+    margin-bottom: 0.4em;
+  }
+
+  .experience__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.8rem;
+  }
+
+  .experience__tag {
+    background: var(--clr-primary);
+    color: var(--clr-bg);
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    text-transform: lowercase;
   }
 
   @media (max-width: 600px) {
