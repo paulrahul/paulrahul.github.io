@@ -5,7 +5,7 @@ const projectsData = [
       tagline: "Intelligent search and trends of personal music library",
       tags: ["ai", "music", "web"],
       stack: ["Python", "Go", "OpenAI", "Postgres"],
-      liveUrl: "https://example.com",
+      liveUrl: "https://sonicsense.space/",
       description: [
         "Helps users explore trends and insights from their personal music library",
         "Allows intelligent search on your music library using AI",
@@ -13,7 +13,7 @@ const projectsData = [
       ]
     },
     {
-      title: "Serendipt",
+      title: "serendi.pt",
       tagline: "Find yourself in others' captures",
       image: "img/serendipt.png",
       tags: ["social", "photos", "web"],
@@ -53,7 +53,7 @@ const projectsData = [
       title: "herlove.world",
       image: "img/herlove.png",
       tagline: "Celebrating maternal love worldwide",
-      tags: ["web"],
+      tags: ["web", "social"],
       stack: ["TypeScript", "React"],
       liveUrl: "https://herlove.world",
       description:
@@ -104,10 +104,10 @@ const skillsData = [
 
 const experienceData = [
   {
-    role: "On a break since Feb 2024",
+    role: "On a break",
     start: "Feb 2024",
     end: "present",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Codex_icon_pause_color-notice.svg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/6/66/Deepin_Icon_Theme_%E2%80%93_chronometer-pause.svg",
     description:
       "Upskilling (technical and cultural) and exploring new avenues.",
     achievements: [
