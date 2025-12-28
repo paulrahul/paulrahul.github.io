@@ -3,7 +3,7 @@ const projectsData = [
       title: "sonicsense.space",
       image: "img/sonicsense.png",
       tagline: "Intelligent search and trends of personal music library",
-      tags: ["ai", "music", "web"],
+      tags: ["ai", "music", "web", "culture"],
       stack: ["Python", "Go", "OpenAI", "Postgres"],
       liveUrl: "https://sonicsense.space/",
       description: [
@@ -27,7 +27,7 @@ const projectsData = [
       title: "Nazarriya",
       image: "img/nr1.png",
       tagline: "Creating safe spaces for young men to grow, reflect, and redefine masculinity",
-      tags: ["mobile", "femtech", "ai"],
+      tags: ["mobile", "femtech", "ai", "people"],
       stack: ["Flutter", "MySQL", "FastAPI"],
       sourceUrl: "https://github.com/justuju-in/nazarriya",
       liveUrl: "https://appdistribution.firebase.dev/i/5fa8c408319e24c6",
@@ -53,7 +53,7 @@ const projectsData = [
       title: "herlove.world",
       image: "img/herlove.png",
       tagline: "Celebrating maternal love worldwide",
-      tags: ["web", "social"],
+      tags: ["web", "social", "people"],
       stack: ["TypeScript", "React"],
       liveUrl: "https://herlove.world",
       description:
@@ -113,9 +113,10 @@ const experienceData = [
     achievements: [
       "Learnt mobile development and launched 2 apps",
       "Staying updated with AI developments and created a few AI based apps",
-      "Learnt new dance forms and languages"
+      "Learnt new dance forms and languages",
+      "Volunteered (tech led, taught, consulted) in a tech cooperative - https://www.justuju.in/"
     ],
-    tags: ["ai", "mobile", "flutter", "dance", "languages"]
+    tags: ["ai", "mobile", "flutter", "dance", "languages", "people", "culture"]
   },
   {
     company: "Amazon (AWS Glue)",

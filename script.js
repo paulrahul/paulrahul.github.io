@@ -338,4 +338,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	updateUI();
 
 	renderSkills(skillsData);
+
+	document.querySelectorAll(".link--value").forEach(link => {
+		link.addEventListener("click", (e) => {
+		  e.preventDefault();     // stop navigation
+
+		  const tag = e.target.textContent.trim();
+		  toggleTag(tag.toLowerCase());
+		});
+	});
 });
