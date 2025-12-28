@@ -26,7 +26,7 @@ const projectsData = [
     {
       title: "Nazarriya",
       image: "img/nr1.png",
-      tagline: "Intelligent search and trends of personal music library",
+      tagline: "Creating safe spaces for young men to grow, reflect, and redefine masculinity",
       tags: ["mobile", "femtech", "ai"],
       stack: ["Flutter", "MySQL", "FastAPI"],
       sourceUrl: "https://github.com/justuju-in/nazarriya",
@@ -128,8 +128,8 @@ const experienceData = [
       "Led core backend orchestration initiatives for AWS Glue and drove platform scalability.",
     achievements: [
       "Evaluated and scaled AWS Glue’s orchestration layer",
-      "Led successful deprecation of legacy DSL",
-      "Designed foundational architecture for Job Scheduling initiative"
+      "Led successful deprecation of AWS Data Pipeline (DPL)",
+      "Led initial designs for Job Run Queueing"
     ],
     tags: ["AWS", "Distributed Systems", "Leadership", "Backend"]
   },

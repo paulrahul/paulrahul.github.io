@@ -82,17 +82,24 @@ function createEl(tag, className, text) {
 
 let activeTags = new Set();
 
-function renderProjects(projects) {
+function renderProjects() {
 	const grid = document.querySelector(".projects__grid");
 	if (!grid) return;
 
 	grid.innerHTML = "";
 
 	const filtered = activeTags.size === 0
-    ? projectsData
-    : projectsData.filter(p =>
-        p.tags.some(tag => activeTags.has(tag))
-      );
+	? projectsData
+	: projectsData.filter(project => {
+		const searchable = [
+		  ...(project.tags || []),
+		  ...(project.stack || [])
+		].map(item => item.toLowerCase());
+
+		return [...activeTags].some(tag =>
+		  searchable.includes(tag.toLowerCase())
+		);
+	});
 
 	filtered.forEach(project => {
 	  const projectDiv = createEl("div", "project");
@@ -131,7 +138,13 @@ function renderProjects(projects) {
 
 	  const stackUl = createEl("ul", "project__stack");
 	  project.stack.forEach(tech => {
-		stackUl.appendChild(createEl("li", "project__stack-item", tech));
+		const stackSpan = createEl("li", "project__stack-item", tech);
+		stackSpan.addEventListener("click", (e) => {
+			e.stopPropagation();
+			toggleTag(tech.toLowerCase());
+		});
+
+		stackUl.appendChild(stackSpan);
 	  });
 
 	  content.append(h4, figure, h5, tagsContainer, stackUl);
@@ -238,11 +251,19 @@ function toggleTag(tag) {
 	updateUI();
 }
 
-function renderExperience(experiences) {
+function renderExperience() {
 	const container = document.querySelector(".experience__list");
 	if (!container) return;
 
-	experiences.forEach(exp => {
+	container.innerHTML = "";
+
+	const filtered = activeTags.size === 0
+	? experienceData
+	: experienceData.filter(e => e.tags.some(tag =>
+		activeTags.has(tag.toLowerCase()))
+	);
+
+	filtered.forEach(exp => {
 	  const card = document.createElement("div");
 	  card.className = "experience__card";
 
@@ -290,6 +311,12 @@ function renderExperience(experiences) {
 		const span = document.createElement("span");
 		span.className = "experience__tag";
 		span.textContent = tag;
+
+		span.addEventListener("click", (e) => {
+			e.stopPropagation();
+			toggleTag(tag.toLowerCase());
+		});
+
 		tags.appendChild(span);
 	  });
 
@@ -304,12 +331,11 @@ function renderExperience(experiences) {
 function updateUI() {
 	renderActiveTags();
 	renderProjects();
+	renderExperience();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 	updateUI();
 
 	renderSkills(skillsData);
-
-	renderExperience(experienceData);
 });
