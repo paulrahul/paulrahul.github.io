@@ -82,6 +82,14 @@ function createEl(tag, className, text) {
 
 let activeTags = new Set();
 
+function linkify(text) {
+	const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+	return text.replace(urlRegex, url => {
+	  return `<a href="${url}" class="link" target="_blank" rel="noopener noreferrer">${url}</a>`;
+	});
+}
+
 function renderProjects() {
 	const grid = document.querySelector(".projects__grid");
 	if (!grid) return;
@@ -149,14 +157,14 @@ function renderProjects() {
 
 	  content.append(h4, figure, h5, tagsContainer, stackUl);
 
+	  const linksContainer = createEl("div", "project__links");
 	  if (project.sourceUrl) {
 		const sourceLink = document.createElement("a");
 		sourceLink.href = project.sourceUrl;
 		sourceLink.className = "link link--icon";
 		sourceLink.setAttribute("aria-label", "source code");
 		sourceLink.innerHTML = `<i class="fab fa-github"></i>`;
-
-		content.append(sourceLink);
+		linksContainer.appendChild(sourceLink);
 	  }
 
 	  if (project.liveUrl) {
@@ -168,8 +176,9 @@ function renderProjects() {
 		liveLink.setAttribute("aria-label", "live preview");
 		liveLink.innerHTML = `<i class="fas fa-external-link-alt"></i>`;
 
-		content.append(liveLink);
+		linksContainer.appendChild(liveLink);
 	  }
+	  content.append(linksContainer);
 
 	  /* ---------- project__alt-content ---------- */
 	  const alt = createEl("div", "project__alt-content");
@@ -180,7 +189,7 @@ function renderProjects() {
 
 		project.description.forEach(item => {
 		  const li = document.createElement("li");
-		  li.textContent = item;
+		  li.innerHTML = linkify(item);
 		  ul.appendChild(li);
 		});
 
@@ -197,15 +206,7 @@ function renderProjects() {
 		// Ignore clicks on links (or inside links)
 		if (e.target.closest("a")) return;
 
-		const isAltVisible = !alt.hasAttribute("hidden");
-
-		if (isAltVisible) {
-		  alt.setAttribute("hidden", "");
-		  content.removeAttribute("hidden");
-		} else {
-		  content.setAttribute("hidden", "");
-		  alt.removeAttribute("hidden");
-		}
+		projectDiv.classList.toggle("is-expanded");
 	  });
 
 	  grid.appendChild(projectDiv);
@@ -300,7 +301,7 @@ function renderExperience() {
 	  const list = document.createElement("ul");
 	  exp.achievements.forEach(item => {
 		const li = document.createElement("li");
-		li.textContent = item;
+		li.innerHTML = linkify(item);
 		list.appendChild(li);
 	  });
 

@@ -514,11 +514,27 @@
   .project__alt-content ul {
     list-style: disc;
     padding-left: 1.2rem;
+    overflow-wrap: anywhere;
   }
 
   .project__alt-content li {
     text-align: left;
     margin-bottom: 0.4rem;
+  }
+
+  .project.is-expanded .project__content {
+    display: none;
+  }
+
+  .project.is-expanded .project__alt-content {
+    display: block;
+  }
+
+  .project__links {
+    display: flex;
+    justify-content: center; /* or flex-start */
+    gap: 0.75rem;
+    margin-top: auto; /* pushes links to bottom if needed */
   }
 
   .skills__list {
