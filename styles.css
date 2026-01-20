@@ -572,6 +572,11 @@
     padding: 3em 0;
     margin-top: 3em;
     text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* optional: center horizontally */
+    gap: 0.5rem;         /* spacing between links */
   }
 
   .footer__link {
