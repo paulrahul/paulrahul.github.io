@@ -250,6 +250,7 @@ function toggleTag(tag) {
 	  activeTags.add(tag);
 	}
 	updateUI();
+	document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
 }
 
 function renderExperience() {
@@ -316,6 +317,7 @@ function renderExperience() {
 		span.addEventListener("click", (e) => {
 			e.stopPropagation();
 			toggleTag(tag.toLowerCase());
+			document.getElementById('experience').scrollIntoView({ behavior: 'smooth' });
 		});
 
 		tags.appendChild(span);

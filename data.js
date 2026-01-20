@@ -83,6 +83,22 @@ const projectsData = [
       description:
         "Single-page, fully private app to help you view, sort and repeat your various lists in a smart way."
     },
+	{
+	  title: "Sutra",
+	  image: "img/sutra1.png",
+	  tagline: "The smarter browser history",
+	  tags: ["extension", "tool", "analytics", "privacy"],
+	  stack: ["Chromium", "Javascript"],
+	  sourceUrl: "https://github.com/paulrahul/sutra",
+	  liveUrl: "https://chromewebstore.google.com/detail/sutra/dpkmikhdmnphoglanaaioifoaognlhdp",
+	  description: [
+	    "Chrome extension that transforms your browsing history into actionable insights",
+	    "Features AI-powered semantic search to find pages using natural language queries",
+	    "Provides analytics including navigation patterns, session tracking, and trend analysis",
+	    "Smart categorization system with custom categories and automatic domain classification",
+	    "All data processing happens locally - privacy-first design with no external data transmission"
+	  ]
+	},
     {
       title: "pipli",
       tagline: "Auto install pip dependencies",
