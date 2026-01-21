@@ -81,6 +81,31 @@ function createEl(tag, className, text) {
 }
 
 let activeTags = new Set();
+let currentView = 'tiles';
+
+// Category definitions with icons based on project tags
+const categoryDefinitions = {
+  'AI': {
+    icon: 'fa-robot',
+    tags: ['ai']
+  },
+  'Mobile': {
+    icon: 'fa-mobile-alt',
+    tags: ['mobile']
+  },
+  'Web': {
+    icon: 'fa-globe',
+    tags: ['web', 'spa']
+  },
+  'Tools': {
+    icon: 'fa-wrench',
+    tags: ['tool', 'extension', 'cli']
+  },
+  'Social': {
+    icon: 'fa-users',
+    tags: ['social', 'people']
+  }
+};
 
 function linkify(text) {
 	const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -331,9 +356,151 @@ function renderExperience() {
 	});
 }
 
+function renderCategories() {
+	const container = document.querySelector(".projects__categories");
+	if (!container) return;
+
+	container.innerHTML = "";
+
+	// Group projects by category
+	const categorizedProjects = {};
+
+	// Initialize categories
+	Object.keys(categoryDefinitions).forEach(cat => {
+		categorizedProjects[cat] = [];
+	});
+
+	// Filter projects first if tags are active
+	const filtered = activeTags.size === 0
+		? projectsData
+		: projectsData.filter(project => {
+			const searchable = [
+				...(project.tags || []),
+				...(project.stack || [])
+			].map(item => item.toLowerCase());
+
+			return [...activeTags].some(tag =>
+				searchable.includes(tag.toLowerCase())
+			);
+		});
+
+	// Categorize each project
+	filtered.forEach(project => {
+		const projectTags = (project.tags || []).map(t => t.toLowerCase());
+
+		Object.entries(categoryDefinitions).forEach(([catName, catDef]) => {
+			if (catDef.tags.some(tag => projectTags.includes(tag))) {
+				categorizedProjects[catName].push(project);
+			}
+		});
+	});
+
+	// Render each category that has projects
+	Object.entries(categorizedProjects).forEach(([catName, projects]) => {
+		if (projects.length === 0) return;
+
+		const catDef = categoryDefinitions[catName];
+		const categoryDiv = createEl("div", "category");
+
+		// Category header
+		const header = createEl("div", "category__header");
+		const toggle = createEl("i", "fas fa-chevron-right category__toggle");
+		const icon = createEl("i", `fas ${catDef.icon} category__icon`);
+		const title = createEl("span", "category__title", catName);
+		const count = createEl("span", "category__count", `${projects.length} project${projects.length !== 1 ? 's' : ''}`);
+		header.append(toggle, icon, title, count);
+
+		// Toggle expand/collapse on header click
+		header.addEventListener("click", () => {
+			categoryDiv.classList.toggle("category--expanded");
+		});
+
+		// Category list
+		const list = createEl("div", "category__list");
+
+		projects.forEach(project => {
+			const item = createEl("div", "category__item");
+
+			// Image
+			if (project.image) {
+				const img = document.createElement("img");
+				img.src = project.image;
+				img.alt = project.title;
+				img.className = "category__item-image";
+				item.appendChild(img);
+			}
+
+			// Content
+			const content = createEl("div", "category__item-content");
+			const itemTitle = createEl("div", "category__item-title", project.title);
+			const tagline = createEl("div", "category__item-tagline", project.tagline);
+			content.append(itemTitle, tagline);
+			item.appendChild(content);
+
+			// Links
+			const links = createEl("div", "category__item-links");
+			if (project.sourceUrl) {
+				const sourceLink = document.createElement("a");
+				sourceLink.href = project.sourceUrl;
+				sourceLink.className = "link link--icon";
+				sourceLink.setAttribute("aria-label", "source code");
+				sourceLink.innerHTML = `<i class="fab fa-github"></i>`;
+				sourceLink.addEventListener("click", e => e.stopPropagation());
+				links.appendChild(sourceLink);
+			}
+			if (project.liveUrl) {
+				const liveLink = document.createElement("a");
+				liveLink.href = project.liveUrl;
+				liveLink.className = "link link--icon";
+				liveLink.target = "_blank";
+				liveLink.rel = "noopener noreferrer";
+				liveLink.setAttribute("aria-label", "live preview");
+				liveLink.innerHTML = `<i class="fas fa-external-link-alt"></i>`;
+				liveLink.addEventListener("click", e => e.stopPropagation());
+				links.appendChild(liveLink);
+			}
+			item.appendChild(links);
+
+			// Click to navigate to live URL
+			item.addEventListener("click", () => {
+				if (project.liveUrl) {
+					window.open(project.liveUrl, "_blank");
+				}
+			});
+
+			list.appendChild(item);
+		});
+
+		categoryDiv.append(header, list);
+		container.appendChild(categoryDiv);
+	});
+}
+
+function setView(view) {
+	currentView = view;
+	const grid = document.querySelector(".projects__grid");
+	const categories = document.querySelector(".projects__categories");
+	const buttons = document.querySelectorAll(".view-toggle__btn");
+
+	buttons.forEach(btn => {
+		btn.classList.toggle("view-toggle__btn--active", btn.dataset.view === view);
+	});
+
+	if (view === 'tiles') {
+		grid.classList.remove("projects__grid--hidden");
+		categories.classList.add("projects__categories--hidden");
+	} else {
+		grid.classList.add("projects__grid--hidden");
+		categories.classList.remove("projects__categories--hidden");
+	}
+
+	updateUI();
+}
+
 function updateUI() {
 	renderActiveTags();
 	renderProjects();
+	renderCategories();
 	renderExperience();
 }
 
@@ -341,6 +508,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	updateUI();
 
 	renderSkills(skillsData);
+
+	// View toggle buttons
+	document.querySelectorAll(".view-toggle__btn").forEach(btn => {
+		btn.addEventListener("click", () => {
+			setView(btn.dataset.view);
+		});
+	});
 
 	document.querySelectorAll(".link--value").forEach(link => {
 		link.addEventListener("click", (e) => {

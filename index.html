@@ -106,10 +106,21 @@
 
       <!-- Projects -->
       <section id="projects" class="section projects">
-        <h2 class="section__title">Projects</h2>
+        <div class="section__header">
+          <h2 class="section__title">Projects</h2>
+          <div class="view-toggle">
+            <button type="button" class="view-toggle__btn view-toggle__btn--active" data-view="tiles" aria-label="Grid view" title="Tiles view">
+              <i aria-hidden="true" class="fas fa-th"></i>
+            </button>
+            <button type="button" class="view-toggle__btn" data-view="categories" aria-label="Category view" title="Categories view">
+              <i aria-hidden="true" class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
 
         <div class="active-filters"></div>
         <div class="projects__grid"></div>
+        <div class="projects__categories projects__categories--hidden"></div>
 
       </section>
 
