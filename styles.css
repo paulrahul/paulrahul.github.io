@@ -728,6 +728,41 @@
     color: var(--clr-primary);
   }
 
+  .category__item-description {
+    display: none;
+    width: 100%;
+    padding: 0.75rem 0 0 0;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--clr-tag-bg);
+  }
+
+  .category__item-description ul {
+    list-style: disc;
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+
+  .category__item-description li {
+    text-align: left;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--clr-fg);
+  }
+
+  .category__item-description p {
+    text-align: left;
+    font-size: 0.9rem;
+    color: var(--clr-fg);
+  }
+
+  .category__item--expanded {
+    flex-wrap: wrap;
+  }
+
+  .category__item--expanded .category__item-description {
+    display: block;
+  }
+
   .skills__list {
     max-width: 650px;
     width: 95%;

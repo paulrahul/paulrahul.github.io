@@ -461,11 +461,27 @@ function renderCategories() {
 			}
 			item.appendChild(links);
 
-			// Click to navigate to live URL
-			item.addEventListener("click", () => {
-				if (project.liveUrl) {
-					window.open(project.liveUrl, "_blank");
-				}
+			// Description (hidden by default, shown on click)
+			const descDiv = createEl("div", "category__item-description");
+			if (Array.isArray(project.description)) {
+				const ul = document.createElement("ul");
+				project.description.forEach(line => {
+					const li = document.createElement("li");
+					li.innerHTML = linkify(line);
+					ul.appendChild(li);
+				});
+				descDiv.appendChild(ul);
+			} else if (project.description) {
+				const p = document.createElement("p");
+				p.innerHTML = linkify(project.description);
+				descDiv.appendChild(p);
+			}
+			item.appendChild(descDiv);
+
+			// Click to toggle description (ignore clicks on links)
+			item.addEventListener("click", (e) => {
+				if (e.target.closest("a")) return;
+				item.classList.toggle("category__item--expanded");
 			});
 
 			list.appendChild(item);
