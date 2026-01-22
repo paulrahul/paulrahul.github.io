@@ -238,15 +238,28 @@ function renderProjects() {
 	});
 }
 
-function renderSkills(skills) {
-	const ul = document.querySelector(".skills__list");
-	if (!ul) return;
+function renderSkills(skillsObj) {
+	const container = document.querySelector(".skills__list");
+	if (!container) return;
 
-	skills.forEach(skill => {
-	  const li = document.createElement("li");
-	  li.className = "skills__list-item btn btn--plain";
-	  li.textContent = skill;
-	  ul.appendChild(li);
+	Object.entries(skillsObj).forEach(([categoryName, categoryData]) => {
+		const categoryDiv = createEl("div", "skills__category");
+
+		// Category header with icon
+		const header = createEl("div", "skills__category-header");
+		const icon = createEl("i", `fas ${categoryData.icon} skills__category-icon`);
+		const title = createEl("span", "skills__category-title", categoryName);
+		header.append(icon, title);
+
+		// Skills list for this category
+		const skillsList = createEl("div", "skills__category-items");
+		categoryData.skills.forEach(skill => {
+			const skillItem = createEl("span", "skills__item", skill);
+			skillsList.appendChild(skillItem);
+		});
+
+		categoryDiv.append(header, skillsList);
+		container.appendChild(categoryDiv);
 	});
 }
 

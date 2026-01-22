@@ -764,30 +764,71 @@
   }
 
   .skills__list {
-    max-width: 650px;
+    max-width: 900px;
     width: 95%;
     margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.8rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
   }
 
-  .skills__list-item {
-    padding: 0.6rem 1.2rem;
+  .skills__category {
     background: var(--clr-bg-alt);
-    border: 2px solid var(--clr-primary);
-    border-radius: 8px;
+    border-radius: 12px;
+    padding: 1.25rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .skills__category:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--clr-primary);
+    transform: translateY(-4px);
+  }
+
+  .skills__category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--clr-tag-bg);
+  }
+
+  .skills__category-icon {
+    font-size: 1.1rem;
     color: var(--clr-primary);
+  }
+
+  .skills__category-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--clr-fg-alt);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .skills__category-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skills__item {
+    padding: 0.4rem 0.85rem;
+    background: var(--clr-tag-bg);
+    border-radius: 6px;
+    color: var(--clr-fg);
+    font-size: 0.85rem;
     font-weight: 400;
     transition: all 0.2s ease;
   }
 
-  .skills__list-item:hover {
+  .skills__item:hover {
     background: var(--clr-primary);
     color: var(--clr-bg);
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
   }
 
   .contact {
@@ -1083,5 +1124,23 @@
 
     .category__item-tagline {
       font-size: 0.8rem;
+    }
+
+    .skills__list {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .skills__category {
+      padding: 1rem;
+    }
+
+    .skills__category-title {
+      font-size: 0.85rem;
+    }
+
+    .skills__item {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.7rem;
     }
   }

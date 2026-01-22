@@ -110,13 +110,28 @@ const projectsData = [
     }
 ];
 
-const skillsData = [
-  "Python", "Go", "Javascript", "Dart",
-  "React", "HTML", "CSS",
-  "PostgreSQL", "MySQL",
-  "RAG", "MCP", "Skills", "Claude Code", "Cursor",
-  "Google Cloud", "Hetzner", "Git", "Docker"
-];
+const skillsData = {
+  'Languages': {
+    icon: 'fa-code',
+    skills: ['Python', 'Go', 'C++', 'Javascript', 'Dart']
+  },
+  'Frontend': {
+    icon: 'fa-computer',
+    skills: ['React', 'VueJS', 'Flask', 'HTML', 'CSS', 'Flutter']
+  },
+  'Backend': {
+    icon: 'fa-database',
+    skills: ['PostgreSQL', 'MySQL', 'gRPC', 'REST', 'FastAPI']
+  },
+  'AI & Agents': {
+    icon: 'fa-robot',
+    skills: ['RAG', 'MCP', 'Claude Code', 'Cursor']
+  },
+  'Cloud & Infra': {
+    icon: 'fa-cloud',
+    skills: ['AWS', 'Google Cloud', 'Docker', 'Hetzner', 'Git']
+  }
+};
 
 const experienceData = [
   {
