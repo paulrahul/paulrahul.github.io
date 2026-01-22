@@ -187,6 +187,8 @@ function renderProjects() {
 		const sourceLink = document.createElement("a");
 		sourceLink.href = project.sourceUrl;
 		sourceLink.className = "link link--icon";
+		sourceLink.target = "_blank";
+		sourceLink.rel = "noopener noreferrer";
 		sourceLink.setAttribute("aria-label", "source code");
 		sourceLink.innerHTML = `<i class="fab fa-github"></i>`;
 		linksContainer.appendChild(sourceLink);

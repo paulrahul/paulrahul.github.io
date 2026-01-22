@@ -20,7 +20,7 @@
   }
 
   body {
-    font-family: "Poppins", sans-serif;
+    font-family: "DM Sans", sans-serif;
     line-height: 1.5;
     color: var(--clr-fg);
     background-color: var(--clr-bg);
@@ -152,7 +152,8 @@
 
   h1 {
     font-size: 3.5rem;
-    font-weight: 400;
+    font-weight: 500;
+    letter-spacing: -0.015em;
   }
 
   h2 {
@@ -172,7 +173,7 @@
   }
 
   h5 {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     padding: 0.45rem;
     font-weight: 400;
     color: var(--clr-fg);
@@ -241,7 +242,7 @@
     display: block;
     padding: 0.8em 1.4em;
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     text-transform: lowercase;
     transition: transform 0.2s ease-in-out;
   }
@@ -385,7 +386,7 @@
     background: transparent;
     transition: all 0.2s ease;
     cursor: pointer;
-    font-size: 0.95rem;
+    font-size: 0.875rem;
   }
 
   .view-toggle__btn:hover {
@@ -422,6 +423,8 @@
     background: var(--clr-bg-alt);
     border-radius: 16px;
     box-shadow: var(--shadow);
+
+    font-family: "Nunito", sans-serif;
   }
 
   .about__name {
@@ -432,7 +435,7 @@
   .about__role {
     margin-top: 1.2em;
     color: var(--clr-accent);
-    font-weight: 400;
+    font-weight: 500;
   }
 
   .about__desc {
@@ -637,7 +640,7 @@
   }
 
   .category__toggle {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     color: var(--clr-muted);
     transition: transform 0.3s ease;
   }
@@ -659,7 +662,7 @@
   }
 
   .category__count {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--clr-muted);
     margin-left: auto;
   }
@@ -722,7 +725,7 @@
   }
 
   .category__item-tagline {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     color: var(--clr-fg);
     white-space: nowrap;
     overflow: hidden;
@@ -762,13 +765,13 @@
   .category__item-description li {
     text-align: left;
     margin-bottom: 0.4rem;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--clr-fg);
   }
 
   .category__item-description p {
     text-align: left;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--clr-fg);
   }
 
@@ -819,7 +822,7 @@
   }
 
   .skills__category-title {
-    font-size: 0.95rem;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--clr-fg-alt);
     text-transform: uppercase;
@@ -837,7 +840,7 @@
     background: var(--clr-tag-bg);
     border-radius: 6px;
     color: var(--clr-fg);
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     font-weight: 400;
     transition: all 0.2s ease;
   }
@@ -864,7 +867,7 @@
   }
 
   .footer__link {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 700;
     color: var(--clr-fg);
   }
@@ -934,7 +937,7 @@
     color: var(--clr-bg);
     padding: 0.5rem 0.9rem;
     border-radius: 8px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     cursor: pointer;
     transition: all 0.2s ease;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
@@ -988,7 +991,7 @@
   }
 
   .experience__date {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     color: var(--clr-fg);
   }
 
@@ -1136,11 +1139,11 @@
     }
 
     .category__item-title {
-      font-size: 0.9rem;
+      font-size: 0.875rem;
     }
 
     .category__item-tagline {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
     }
 
     .skills__list {
@@ -1153,11 +1156,11 @@
     }
 
     .skills__category-title {
-      font-size: 0.85rem;
+      font-size: 0.75rem;
     }
 
     .skills__item {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       padding: 0.35rem 0.7rem;
     }
   }
