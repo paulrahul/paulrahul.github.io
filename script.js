@@ -207,7 +207,6 @@ function renderProjects() {
 
 	  /* ---------- project__alt-content ---------- */
 	  const alt = createEl("div", "project__alt-content");
-	  alt.hidden = true;
 
 	  if (Array.isArray(project.description)) {
 		const ul = document.createElement("ul");
@@ -226,7 +225,10 @@ function renderProjects() {
 		alt.appendChild(p);
 	  }
 
-	  projectDiv.append(content, alt);
+	  const inner = createEl("div", "project__inner");
+	  inner.append(content, alt);
+	  projectDiv.appendChild(inner);
+
 	  projectDiv.addEventListener("click", (e) => {
 		// Ignore clicks on links (or inside links)
 		if (e.target.closest("a")) return;
