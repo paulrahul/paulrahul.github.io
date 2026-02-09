@@ -125,7 +125,7 @@ const skillsData = {
   },
   'AI & Agents': {
     icon: 'fa-robot',
-    skills: ['RAG', 'MCP', 'Claude Code', 'Cursor']
+    skills: ['RAG', 'MCP', 'Claude Code', 'Cursor', 'n8n', 'Agents']
   },
   'Cloud & Infra': {
     icon: 'fa-cloud',
