@@ -49,7 +49,7 @@ const projectsData = [
         "Meant to let you quickly tag and save shared links, documents, texts in the form of searchable and indexed files"
       ]
     },
-    {
+    /*{
       title: "herlove.world",
       image: "img/herlove.png",
       tagline: "Celebrating maternal love worldwide",
@@ -58,7 +58,7 @@ const projectsData = [
       liveUrl: "https://herlove.world",
       description:
         "Herlove.world celebrates maternal love across cultures and countries."
-    },
+    },*/
     {
       title: "HaNe",
       image: "img/hane.jpg",
@@ -83,30 +83,42 @@ const projectsData = [
       description:
         "Single-page, fully private app to help you view, sort and repeat your various lists in a smart way."
     },
-	{
-	  title: "Sutra",
-	  image: "img/sutra1.png",
-	  tagline: "The smarter browser history",
-	  tags: ["extension", "tool", "analytics", "privacy"],
-	  stack: ["Chromium", "Javascript"],
-	  sourceUrl: "https://github.com/paulrahul/sutra",
-	  liveUrl: "https://chromewebstore.google.com/detail/sutra/dpkmikhdmnphoglanaaioifoaognlhdp",
-	  description: [
-	    "Chrome extension that transforms your browsing history into actionable insights",
-	    "Features AI-powered semantic search to find pages using natural language queries",
-	    "Provides analytics including navigation patterns, session tracking, and trend analysis",
-	    "Smart categorization system with custom categories and automatic domain classification",
-	    "All data processing happens locally - privacy-first design with no external data transmission"
-	  ]
-	},
+    {
+      title: "Sutra",
+      image: "img/sutra1.png",
+      tagline: "The smarter browser history",
+      tags: ["extension", "tool", "analytics", "privacy"],
+      stack: ["Chromium", "Javascript"],
+      sourceUrl: "https://github.com/paulrahul/sutra",
+      liveUrl: "https://chromewebstore.google.com/detail/sutra/dpkmikhdmnphoglanaaioifoaognlhdp",
+      description: [
+        "Chrome extension that transforms your browsing history into actionable insights",
+        "Features AI-powered semantic search to find pages using natural language queries",
+        "Provides analytics including navigation patterns, session tracking, and trend analysis",
+        "Smart categorization system with custom categories and automatic domain classification",
+        "All data processing happens locally - privacy-first design with no external data transmission"
+      ]
+    },
+    {
+      title: "Marko",
+      image: "img/marko.png",
+      tagline: "Edit Markdown in rich text",
+      tags: ["tool", "markdown", "spa", "privacy"],
+      stack: ["HTML", "Javascript"],
+      liveUrl: "https://marko-alpha.vercel.app/",
+      description: [
+        "View & edit markdown content in rich text editor along with ToC support",
+        "Client only, SPA"
+      ]
+    },
     {
       title: "pipli",
       tagline: "Auto install pip dependencies",
       tags: ["tool", "cli"],
-      stack: ["python"],
+      stack: ["Python"],
       liveUrl: "https://pypi.org/project/pipli/",
       description:
-        "Auto install pip dependencies needed for a given command to run successfully."
+        "Auto install pip dependencies needed for a given command to run successfully"
     }
 ];
 
