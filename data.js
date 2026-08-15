@@ -17,7 +17,7 @@ const projectsData = [
       tagline: "Find yourself in others' captures",
       image: "img/serendipt.png",
       tags: ["social", "photos", "web"],
-      stack: ["Flutter", "Drift"],
+      stack: ["Go", "Nuxt", "Postgres"],
       liveUrl: "https://serendi.pt/",
       description: [
         "Portal to search strangers’ photos where you appear accidentally.",
@@ -35,6 +35,20 @@ const projectsData = [
         "Nazarriya is a platform encouraging dialogue, curiosity, and change",
         "Let's young men and boys chat with a trained AI assistant to discuss intimate and complex issues around gender, sexuality and consent",
         "Submitted as part of Unicef's call for Femtech apps and selected till the technical round"
+      ]
+    },
+    {
+      title: "Saral",
+      tagline: "Technology made simple, so no one is left behind",
+      image: "img/saral.png",
+      tags: ["education", "ai", "agent", "web"],
+      stack: ["Python", "Astro", "Openrouter", "LLMs"],
+      liveUrl: "https://saralai-seven.vercel.app/",
+      description: [
+        "Short, concise, translated tech articles for elderly & marginalized sections.",
+        "Explains emerging technology in very simple, clear language.",
+        "New content created & deployed fully via an AI Agent",
+        "Focus on optimizing AI production cost & granular monitoring"
       ]
     },
     {
@@ -275,4 +289,3 @@ const experienceData = [
     tags: ["C++", "BigTable", "Distributed Systems"]
   }
 ];
-
