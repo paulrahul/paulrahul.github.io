@@ -537,10 +537,25 @@ function updateUI() {
 	renderExperience();
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+const showDataLoadError = () => {
+	const projects = document.querySelector(".projects__grid");
+	if (!projects) return;
+
+	projects.innerHTML = "<p>Portfolio data could not be loaded. Please try again later.</p>";
+};
+
+document.addEventListener("DOMContentLoaded", async () => {
+	try {
+		await window.portfolioDataReady;
+	} catch (error) {
+		console.error("Unable to load portfolio data:", error);
+		showDataLoadError();
+		return;
+	}
+
 	updateUI();
 
-	renderSkills(skillsData);
+	renderSkills(window.skillsData);
 
 	// View toggle buttons
 	document.querySelectorAll(".view-toggle__btn").forEach(btn => {
