@@ -1,18 +1,5 @@
 const projectsData = [
     {
-      title: "sonicsense.space",
-      image: "img/sonicsense.png",
-      tagline: "Intelligent search and trends of personal music library",
-      tags: ["ai", "music", "web", "culture"],
-      stack: ["Python", "Go", "OpenAI", "Postgres"],
-      liveUrl: "https://sonicsense.space/",
-      description: [
-        "Helps users explore trends and insights from their personal music library",
-        "Allows intelligent search on your music library using AI",
-        "E.g.: 'list slow French songs with female voice as lead' or 'song from Mali featuring a chorus'"
-      ]
-    },
-    {
       title: "serendi.pt",
       tagline: "Find yourself in others' captures",
       image: "img/serendipt.png",
@@ -21,6 +8,21 @@ const projectsData = [
       liveUrl: "https://serendi.pt/",
       description: [
         "Portal to search strangers’ photos where you appear accidentally.",
+      ]
+    },
+    {
+      title: "Saral",
+      tagline: "Technology made simple, so no one is left behind",
+      image: "img/saral.png",
+      tags: ["education", "ai", "agent", "rag", "web"],
+      stack: ["Python", "Astro", "Openrouter", "LLMs"],
+      liveUrl: "https://saralai-seven.vercel.app/",
+      description: [
+        "Short, concise, translated tech articles for elderly & marginalized sections.",
+        "Explains emerging technology in very simple, clear language.",
+        "New content created & deployed fully via an AI Agent",
+        "Focus on optimizing AI production cost & granular monitoring",
+        "AI Chatbot to help find and discuss about Saral's content"
       ]
     },
     {
@@ -38,17 +40,16 @@ const projectsData = [
       ]
     },
     {
-      title: "Saral",
-      tagline: "Technology made simple, so no one is left behind",
-      image: "img/saral.png",
-      tags: ["education", "ai", "agent", "web"],
-      stack: ["Python", "Astro", "Openrouter", "LLMs"],
-      liveUrl: "https://saralai-seven.vercel.app/",
+      title: "sonicsense.space",
+      image: "img/sonicsense.png",
+      tagline: "Intelligent search and trends of personal music library",
+      tags: ["ai", "music", "web", "culture"],
+      stack: ["Python", "Go", "OpenAI", "Postgres"],
+      liveUrl: "https://sonicsense.space/",
       description: [
-        "Short, concise, translated tech articles for elderly & marginalized sections.",
-        "Explains emerging technology in very simple, clear language.",
-        "New content created & deployed fully via an AI Agent",
-        "Focus on optimizing AI production cost & granular monitoring"
+        "Helps users explore trends and insights from their personal music library",
+        "Allows intelligent search on your music library using AI",
+        "E.g.: 'list slow French songs with female voice as lead' or 'song from Mali featuring a chorus'"
       ]
     },
     {
@@ -139,11 +140,11 @@ const projectsData = [
 const skillsData = {
   'Languages': {
     icon: 'fa-code',
-    skills: ['Python', 'Go', 'C++', 'Javascript', 'Dart']
+    skills: ['Python', 'Go', 'C++', 'Javascript', 'Dart', 'German (B1)', 'English (Fluent)']
   },
   'Frontend': {
     icon: 'fa-computer',
-    skills: ['React', 'VueJS', 'Flask', 'HTML', 'CSS', 'Flutter']
+    skills: ['React', 'VueJS', 'Nuxt', 'Flask', 'HTML', 'CSS', 'Flutter']
   },
   'Backend': {
     icon: 'fa-database',
@@ -151,7 +152,7 @@ const skillsData = {
   },
   'AI & Agents': {
     icon: 'fa-robot',
-    skills: ['RAG', 'MCP', 'Claude Code', 'Cursor', 'n8n', 'Agents']
+    skills: ['RAG', 'MCP', 'Claude Code', 'n8n', 'Agents', "LangGraph"]
   },
   'Cloud & Infra': {
     icon: 'fa-cloud',
@@ -169,9 +170,10 @@ const experienceData = [
       "Upskilling (technical and cultural) and exploring new avenues.",
     achievements: [
       "Learnt mobile development and launched 2 apps",
-      "Staying updated with AI developments and created a few AI based apps",
-      "Learnt new dance forms and languages",
-      "Volunteered (tech led, taught, consulted) in a tech cooperative - https://www.justuju.in/"
+      "Have stayed updated with AI developments and developed several AI solutions",
+      "Learnt new dance forms and languages (ongoing)",
+      "Volunteered (tech led, taught, consulted) in a tech cooperative - https://www.justuju.in/",
+      "Assisting students with visual disabilities with textbook reading"
     ],
     tags: ["ai", "mobile", "flutter", "dance", "languages", "people", "culture"]
   },
