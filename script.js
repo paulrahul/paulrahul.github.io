@@ -15,6 +15,16 @@ const saveTheme = (bodyClass, btnClass) => {
 	localStorage.setItem('portfolio-btn-theme', btnClass)
 }
 
+const syncChatTheme = () => {
+	const chatFrame = document.querySelector('[data-chat-frame]')
+	if (!chatFrame?.contentWindow) return
+
+	chatFrame.contentWindow.postMessage(
+		{ type: 'portfolio-theme', theme: isDark() ? 'dark' : 'theme-ocean-sand' },
+		window.location.origin,
+	)
+}
+
 const isDark = () => body.classList.contains('dark')
 
 const setTheme = (bodyClass, btnClass) => {
@@ -25,6 +35,7 @@ const setTheme = (bodyClass, btnClass) => {
 
 	addThemeClass(bodyClass, btnClass)
 	saveTheme(bodyClass, btnClass)
+	syncChatTheme()
 }
 
 const toggleTheme = () =>
@@ -544,7 +555,45 @@ const showDataLoadError = () => {
 	projects.innerHTML = "<p>Portfolio data could not be loaded. Please try again later.</p>";
 };
 
+const initializeChatWidget = () => {
+	const launchLink = document.querySelector('[data-chat-launch]')
+	const widget = document.querySelector('[data-chat-widget]')
+	const chatFrame = document.querySelector('[data-chat-frame]')
+	if (!launchLink || !widget || !chatFrame) return
+
+	const closeWidget = () => {
+		widget.hidden = true
+		launchLink.hidden = false
+		launchLink.setAttribute('aria-expanded', 'false')
+		launchLink.blur()
+	}
+
+	launchLink.addEventListener('click', (event) => {
+		if (window.matchMedia('(max-width: 600px)').matches) return
+
+		event.preventDefault()
+		launchLink.hidden = true
+		widget.hidden = false
+		launchLink.setAttribute('aria-expanded', 'true')
+		syncChatTheme()
+		chatFrame.contentWindow?.focus()
+	})
+
+	chatFrame.addEventListener('load', syncChatTheme)
+
+	window.addEventListener('message', (event) => {
+		if (event.origin !== window.location.origin || event.source !== chatFrame.contentWindow) return
+		if (event.data?.type === 'portfolio-chat-close') closeWidget()
+	})
+
+	document.addEventListener('keydown', (event) => {
+		if (event.key === 'Escape' && !widget.hidden) closeWidget()
+	})
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
+	initializeChatWidget();
+
 	try {
 		await window.portfolioDataReady;
 	} catch (error) {

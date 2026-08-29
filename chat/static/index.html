@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Ask Rahul — a conversational portfolio preview."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Ask Rahul</title>
+  </head>
+  <body class="chat-page">
+    <main class="chat-shell">
+      <section class="chat-card" aria-label="Chat with Rahul’s portfolio">
+        <div class="chat-topbar">
+          <div class="assistant-identity">
+            <div>
+              <p class="assistant-name">Rahul’s portfolio assistant</p>
+              <!--p class="assistant-status"><span></span> Ready to help</p-->
+            </div>
+          </div>
+          <div class="window-actions">
+            <button type="button" data-maximize-chat aria-label="Open chat in a new tab" title="Open in a new tab">↗</button>
+            <button type="button" data-close-chat aria-label="Close chat" title="Close chat">×</button>
+          </div>
+        </div>
+
+        <div class="messages" data-messages aria-live="polite">
+          <article class="message message--assistant">
+            <span class="message-avatar" aria-hidden="true">RP</span>
+            <div class="message-content">
+              <!--p class="message-label">Portfolio assistant</p-->
+              <div class="bubble">
+                <p>
+                  Hi — I can help you explore Rahul’s projects, engineering
+                  experience, and the values behind his work.
+                </p>
+              </div>
+              <p class="message-time">Just now</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="suggestions" aria-label="Suggested questions">
+          <p>Try asking</p>
+          <div class="suggestion-list">
+            <button type="button" data-question="What kinds of projects does Rahul build?">
+              What kinds of projects does Rahul build?
+            </button>
+            <button type="button" data-question="Tell me about Rahul’s experience leading teams.">
+              Tell me about Rahul’s experience leading teams.
+            </button>
+            <!--button type="button" data-question="What is Saral?">
+              What is Saral?
+            </button-->
+          </div>
+        </div>
+
+        <form class="composer" data-chat-form>
+          <label class="sr-only" for="chat-input">Ask a question</label>
+          <textarea
+            id="chat-input"
+            name="question"
+            rows="1"
+            maxlength="1000"
+            placeholder="Ask about projects, experience, interests..."
+            data-chat-input
+          ></textarea>
+          <button class="send-button" type="submit" aria-label="Send question">
+            <span aria-hidden="true">↑</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <script src="chat.js"></script>
+  </body>
+</html>

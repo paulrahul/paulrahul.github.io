@@ -202,6 +202,33 @@
       </div>
     </div>
 
+    <a
+      href="./chat/static/"
+      class="btn btn--outline chat-launch-button"
+      target="_blank"
+      rel="noopener noreferrer"
+      data-chat-launch
+      aria-controls="portfolio-chat-widget"
+      aria-expanded="false"
+    >
+      <i class="fa-regular fa-comment-dots" aria-hidden="true"></i>
+      Portfolio Assistant
+    </a>
+
+    <aside
+      id="portfolio-chat-widget"
+      class="chat-widget"
+      data-chat-widget
+      aria-label="Rahul’s portfolio assistant"
+      hidden
+    >
+      <iframe
+        src="./chat/static/?embedded=1"
+        title="Rahul’s portfolio assistant"
+        data-chat-frame
+      ></iframe>
+    </aside>
+
     <script src="./data-loader.js"></script>
     <script src="./script.js"></script>
   </body>
