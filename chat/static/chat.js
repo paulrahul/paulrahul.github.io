@@ -6,7 +6,8 @@ const suggestedQuestions = document.querySelectorAll("[data-question]");
 const maximizeButton = document.querySelector("[data-maximize-chat]");
 const closeButton = document.querySelector("[data-close-chat]");
 const sendButton = form.querySelector("button[type='submit']");
-const CHAT_API_URL = "http://127.0.0.1:8000/api/chat";
+// const CHAT_API_URL = "http://127.0.0.1:8000/api/chat";
+const CHAT_API_URL = "https://portfolio-chatbot-kohl.vercel.app/api/chat";
 
 const isEmbedded = new URLSearchParams(window.location.search).get("embedded") === "1";
 document.body.classList.toggle("is-embedded", isEmbedded);
