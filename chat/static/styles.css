@@ -220,8 +220,8 @@ h1 {
 
 .assistant-name {
   color: var(--clr-fg-alt);
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-size: small;
+  font-weight: 500;
 }
 
 .assistant-status {
@@ -289,14 +289,100 @@ h1 {
   font-size: 0.94rem;
 }
 
-.bubble p {
-  margin: 0;
+.bubble p,
+.bubble ul,
+.bubble ol,
+.bubble h3 {
+  margin: 0 0 0.65rem;
+  overflow-wrap: anywhere;
+}
+
+.bubble > :last-child {
+  margin-bottom: 0;
+}
+
+.bubble ul,
+.bubble ol {
+  padding-left: 1.25rem;
+}
+
+.bubble li + li {
+  margin-top: 0.45rem;
+}
+
+.bubble h3 {
+  color: var(--clr-fg-alt);
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+}
+
+.bubble strong {
+  color: var(--clr-fg-alt);
+  font-weight: 700;
+}
+
+.bubble code {
+  padding: 0.08rem 0.3rem;
+  background: var(--clr-bg-alt);
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+.bubble a {
+  color: var(--clr-primary);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
 }
 
 .message--user .bubble {
   border-radius: 14px 4px 14px 14px;
   color: #fff;
   background: var(--clr-primary);
+}
+
+.typing-indicator {
+  min-width: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.typing-indicator span {
+  width: 0.38rem;
+  height: 0.38rem;
+  background: var(--clr-muted);
+  border-radius: 50%;
+  animation: typing-pulse 1.2s ease-in-out infinite;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-pulse {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-0.2rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .typing-indicator span {
+    animation: none;
+    opacity: 0.7;
+  }
 }
 
 .message-time {

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "sources": [
+    {
+      "id": "portfolio-data",
+      "type": "portfolio-json",
+      "path": "data.json",
+      "title": "Rahul Paul's portfolio",
+      "url": "https://paulrahul.github.io/"
+    },
+    {
+      "id": "resume",
+      "type": "pdf",
+      "path": "resume.pdf",
+      "title": "Rahul Paul's resume",
+      "url": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "options": {
+        "twoColumnPages": [1, 2],
+        "columnSplitRatio": 0.65,
+        "startMarkers": {
+          "1:left": "EXPERIENCE",
+          "1:right": "SKILLS SUMMARY"
+        },
+        "sectionLabels": {
+          "1:left": "Recent experience",
+          "1:right": "Skills and technologies",
+          "2:left": "Earlier engineering experience",
+          "2:right": "Concepts, patents, education, and languages",
+          "3:full": "Earlier experience and personal projects",
+          "4:full": "Personal projects continued"
+        }
+      }
+    }
+  ]
+}

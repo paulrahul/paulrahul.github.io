@@ -1,0 +1,811 @@
+{
+  "schemaVersion": 1,
+  "language": "en",
+  "chunks": [
+    {
+      "id": "portfolio-data:project:serendi-pt",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "serendi.pt",
+      "part": 1,
+      "text": "Project: serendi.pt.\nTagline: Find yourself in others' captures.\nDescription: Portal to search strangers’ photos where you appear accidentally.\nTechnology stack: Go, Nuxt, Postgres.\nTopics: social, photos, web.\nProject website: https://serendi.pt/.",
+      "contentHash": "32a611fa85b901deda639b935d403b3a7d8aee815642b72c2b84c123c163f9b8",
+      "wordCount": 30,
+      "metadata": {
+        "title": "serendi.pt",
+        "tags": [
+          "social",
+          "photos",
+          "web"
+        ],
+        "stack": [
+          "Go",
+          "Nuxt",
+          "Postgres"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:saral",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "Saral",
+      "part": 1,
+      "text": "Project: Saral.\nTagline: Technology made simple, so no one is left behind.\nDescription: Short, concise, translated tech articles for elderly & marginalized sections. Explains emerging technology in very simple, clear language. New content created & deployed fully via an AI Agent Focus on optimizing AI production cost & granular monitoring AI Chatbot to help find and discuss about Saral's content\nTechnology stack: Python, Astro, Openrouter, LLMs.\nTopics: education, ai, agent, rag, web.\nProject website: https://saralai-seven.vercel.app/.",
+      "contentHash": "080612913bab84120e5412d3ce1efbf059f6da0edff135cb75cf5969b2324931",
+      "wordCount": 75,
+      "metadata": {
+        "title": "Saral",
+        "tags": [
+          "education",
+          "ai",
+          "agent",
+          "rag",
+          "web"
+        ],
+        "stack": [
+          "Python",
+          "Astro",
+          "Openrouter",
+          "LLMs"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:nazarriya",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "Nazarriya",
+      "part": 1,
+      "text": "Project: Nazarriya.\nTagline: Creating safe spaces for young men to grow, reflect, and redefine masculinity.\nDescription: Nazarriya is a platform encouraging dialogue, curiosity, and change Let's young men and boys chat with a trained AI assistant to discuss intimate and complex issues around gender, sexuality and consent Submitted as part of Unicef's call for Femtech apps and selected till the technical round\nTechnology stack: Flutter, MySQL, FastAPI.\nTopics: mobile, femtech, ai, people.\nSource code: https://github.com/justuju-in/nazarriya.\nProject website: https://appdistribution.firebase.dev/i/5fa8c408319e24c6.",
+      "contentHash": "e1f66173e0c8aee28a04bb6ea2b7591c8b235ba7ab81248d3da9a83e4978fff9",
+      "wordCount": 78,
+      "metadata": {
+        "title": "Nazarriya",
+        "tags": [
+          "mobile",
+          "femtech",
+          "ai",
+          "people"
+        ],
+        "stack": [
+          "Flutter",
+          "MySQL",
+          "FastAPI"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:sonicsense-space",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "sonicsense.space",
+      "part": 1,
+      "text": "Project: sonicsense.space.\nTagline: Intelligent search and trends of personal music library.\nDescription: Helps users explore trends and insights from their personal music library Allows intelligent search on your music library using AI E.g.: 'list slow French songs with female voice as lead' or 'song from Mali featuring a chorus'\nTechnology stack: Python, Go, OpenAI, Postgres.\nTopics: ai, music, web, culture.\nProject website: https://sonicsense.space/.",
+      "contentHash": "b3c6c096804bc85f9614f5071d172a350d28d3236ceccce437dd002701f6c6be",
+      "wordCount": 63,
+      "metadata": {
+        "title": "sonicsense.space",
+        "tags": [
+          "ai",
+          "music",
+          "web",
+          "culture"
+        ],
+        "stack": [
+          "Python",
+          "Go",
+          "OpenAI",
+          "Postgres"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:tagl",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "Tagl",
+      "part": 1,
+      "text": "Project: Tagl.\nTagline: Organize your digital life.\nDescription: Tagl combines the best of tags, files and folders to organise your digital assets. Meant to let you quickly tag and save shared links, documents, texts in the form of searchable and indexed files\nTechnology stack: Flutter, Drift.\nTopics: mobile, share, social.\nProject website: https://tagl.redoxsoft.com/.",
+      "contentHash": "8b822b65c295807e326cf2f87925660aa897834ee9915c8c2b6eeaf706269a14",
+      "wordCount": 53,
+      "metadata": {
+        "title": "Tagl",
+        "tags": [
+          "mobile",
+          "share",
+          "social"
+        ],
+        "stack": [
+          "Flutter",
+          "Drift"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:hane",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "HaNe",
+      "part": 1,
+      "text": "Project: HaNe.\nTagline: Utility Chrome extension for Hacker News.\nDescription: Extension that helps get a quick overview of what the Hacker News is saying about a particular web article/link Complemented with a Telegram bot: https://reorientinglife.substack.com/p/optimizing-my-hacker-news-experience Published in Hacker News with great reception: https://news.ycombinator.com/item?id=43927794\nTechnology stack: Chromium, Javascript.\nTopics: extension, tool, hackernews.\nSource code: https://github.com/paulrahul/hane.\nProject website: https://chromewebstore.google.com/detail/cdopgikfgbbbabbpcbokpbjiikikanfb?utm_source=item-share-cb.",
+      "contentHash": "da82b7725f0623a3782c7db0688b95d6c9a79b9f476dffdf84b359ce241d815d",
+      "wordCount": 57,
+      "metadata": {
+        "title": "HaNe",
+        "tags": [
+          "extension",
+          "tool",
+          "hackernews"
+        ],
+        "stack": [
+          "Chromium",
+          "Javascript"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:loopcart",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "Loopcart",
+      "part": 1,
+      "text": "Project: Loopcart.\nTagline: Smart, repeatable lists.\nDescription: Single-page, fully private app to help you view, sort and repeat your various lists in a smart way.\nTechnology stack: Javascript, Google Drive.\nTopics: web, privacy, spa, tool.\nProject website: https://loopcart-omega.vercel.app/.",
+      "contentHash": "96ae590a4d142aceb9b533b5a3606cfede63997a301457f51b4097d48be825fb",
+      "wordCount": 38,
+      "metadata": {
+        "title": "Loopcart",
+        "tags": [
+          "web",
+          "privacy",
+          "spa",
+          "tool"
+        ],
+        "stack": [
+          "Javascript",
+          "Google Drive"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:sutra",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "Sutra",
+      "part": 1,
+      "text": "Project: Sutra.\nTagline: The smarter browser history.\nDescription: Chrome extension that transforms your browsing history into actionable insights Features AI-powered semantic search to find pages using natural language queries Provides analytics including navigation patterns, session tracking, and trend analysis Smart categorization system with custom categories and automatic domain classification All data processing happens locally - privacy-first design with no external data transmission\nTechnology stack: Chromium, Javascript.\nTopics: extension, tool, analytics, privacy.\nSource code: https://github.com/paulrahul/sutra.\nProject website: https://chromewebstore.google.com/detail/sutra/dpkmikhdmnphoglanaaioifoaognlhdp.",
+      "contentHash": "2e8b01dbed7aac3b1c3dc767a45bdcb6d744d43f90fcdbd49d9e7908c99edc8c",
+      "wordCount": 77,
+      "metadata": {
+        "title": "Sutra",
+        "tags": [
+          "extension",
+          "tool",
+          "analytics",
+          "privacy"
+        ],
+        "stack": [
+          "Chromium",
+          "Javascript"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:marko",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "Marko",
+      "part": 1,
+      "text": "Project: Marko.\nTagline: Edit Markdown in rich text.\nDescription: View & edit markdown content in rich text editor along with ToC support Client only, SPA\nTechnology stack: HTML, Javascript.\nTopics: tool, markdown, spa, privacy.\nProject website: https://marko-alpha.vercel.app/.",
+      "contentHash": "6482f4bddeaf6c6d19957994ebfa91973b143e18e04d9e353e2ffcb7da8a513d",
+      "wordCount": 37,
+      "metadata": {
+        "title": "Marko",
+        "tags": [
+          "tool",
+          "markdown",
+          "spa",
+          "privacy"
+        ],
+        "stack": [
+          "HTML",
+          "Javascript"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:project:pipli",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "project",
+      "heading": "pipli",
+      "part": 1,
+      "text": "Project: pipli.\nTagline: Auto install pip dependencies.\nDescription: Auto install pip dependencies needed for a given command to run successfully\nTechnology stack: Python.\nTopics: tool, cli.\nProject website: https://pypi.org/project/pipli/.",
+      "contentHash": "8e7eeb63e3e162eb7a4cbc7cdd44110c3e26949e142d8138c6408262e9f73370",
+      "wordCount": 29,
+      "metadata": {
+        "title": "pipli",
+        "tags": [
+          "tool",
+          "cli"
+        ],
+        "stack": [
+          "Python"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:skills:languages",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "skills",
+      "heading": "Skills — Languages",
+      "part": 1,
+      "text": "Rahul's Languages skills: Python, Go, C++, Javascript, Dart, German (B1), English (Fluent).",
+      "contentHash": "45397f6b6e1fed5547eceb58f957ef509baced1a6d7c3895a287762f3d048835",
+      "wordCount": 12,
+      "metadata": {
+        "category": "Languages",
+        "skills": [
+          "Python",
+          "Go",
+          "C++",
+          "Javascript",
+          "Dart",
+          "German (B1)",
+          "English (Fluent)"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:skills:frontend",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "skills",
+      "heading": "Skills — Frontend",
+      "part": 1,
+      "text": "Rahul's Frontend skills: React, VueJS, Nuxt, Flask, HTML, CSS, Flutter.",
+      "contentHash": "1edbdf82b33b6a340835493e3a1f619d76874c040d4a912e99b773583f282b79",
+      "wordCount": 10,
+      "metadata": {
+        "category": "Frontend",
+        "skills": [
+          "React",
+          "VueJS",
+          "Nuxt",
+          "Flask",
+          "HTML",
+          "CSS",
+          "Flutter"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:skills:backend",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "skills",
+      "heading": "Skills — Backend",
+      "part": 1,
+      "text": "Rahul's Backend skills: PostgreSQL, MySQL, gRPC, REST, FastAPI.",
+      "contentHash": "fdcaeb880727aa0934b59dcaf90525fbbb5984ee2434e051739a8d98e760c08c",
+      "wordCount": 8,
+      "metadata": {
+        "category": "Backend",
+        "skills": [
+          "PostgreSQL",
+          "MySQL",
+          "gRPC",
+          "REST",
+          "FastAPI"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:skills:ai-agents",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "skills",
+      "heading": "Skills — AI & Agents",
+      "part": 1,
+      "text": "Rahul's AI & Agents skills: RAG, MCP, Claude Code, n8n, Agents, LangGraph.",
+      "contentHash": "572f6d99214849a6135d9eaf95dbb42ec46e0e851299a868b367ec9f2bda6274",
+      "wordCount": 12,
+      "metadata": {
+        "category": "AI & Agents",
+        "skills": [
+          "RAG",
+          "MCP",
+          "Claude Code",
+          "n8n",
+          "Agents",
+          "LangGraph"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:skills:cloud-infra",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "skills",
+      "heading": "Skills — Cloud & Infra",
+      "part": 1,
+      "text": "Rahul's Cloud & Infra skills: AWS, Google Cloud, Docker, Hetzner, Git.",
+      "contentHash": "4fa627e3de04eb68d37c86aac0a694bff8041e90dac80b337eb569963757c914",
+      "wordCount": 11,
+      "metadata": {
+        "category": "Cloud & Infra",
+        "skills": [
+          "AWS",
+          "Google Cloud",
+          "Docker",
+          "Hetzner",
+          "Git"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:career-break-on-a-break-feb-2024",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "On a break — Career break",
+      "part": 1,
+      "text": "Experience: On a break at Career break.\nPeriod: Feb 2024 to present.\nSummary: Upskilling (technical and cultural) and exploring new avenues.\nAchievements and responsibilities: Learnt mobile development and launched 2 apps Have stayed updated with AI developments and developed several AI solutions Learnt new dance forms and languages (ongoing) Volunteered (tech led, taught, consulted) in a tech cooperative - https://www.justuju.in/ Assisting students with visual disabilities with textbook reading\nRelated skills and topics: ai, mobile, flutter, dance, languages, people, culture.",
+      "contentHash": "ca200663716e8737e191af5580ae9c945baf54259508bc6276f6912980840b74",
+      "wordCount": 79,
+      "metadata": {
+        "company": "Career break",
+        "role": "On a break",
+        "start": "Feb 2024",
+        "end": "present",
+        "location": "",
+        "tags": [
+          "ai",
+          "mobile",
+          "flutter",
+          "dance",
+          "languages",
+          "people",
+          "culture"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:amazon-aws-glue-software-development-manager-jan-2023",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "Software Development Manager — Amazon (AWS Glue)",
+      "part": 1,
+      "text": "Experience: Software Development Manager at Amazon (AWS Glue).\nPeriod: Jan 2023 to Jan 2024.\nLocation: Berlin, Germany.\nSummary: Led core backend orchestration initiatives for AWS Glue and drove platform scalability.\nAchievements and responsibilities: Evaluated and scaled AWS Glue’s orchestration layer Led successful deprecation of AWS Data Pipeline (DPL) Led initial designs for Job Run Queueing\nRelated skills and topics: AWS, Distributed Systems, Leadership, Backend.",
+      "contentHash": "0447ae29405c991918082b2a1d1a60fed5a02ab07306f8929f744d580853a8ab",
+      "wordCount": 64,
+      "metadata": {
+        "company": "Amazon (AWS Glue)",
+        "role": "Software Development Manager",
+        "start": "Jan 2023",
+        "end": "Jan 2024",
+        "location": "Berlin, Germany",
+        "tags": [
+          "AWS",
+          "Distributed Systems",
+          "Leadership",
+          "Backend"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:nutanix-director-of-engineering-nov-2020",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "Director of Engineering — Nutanix",
+      "part": 1,
+      "text": "Experience: Director of Engineering at Nutanix.\nPeriod: Nov 2020 to Dec 2022.\nLocation: Berlin, Germany.\nSummary: Led multiple infrastructure teams and strategic cloud initiatives across geographies.\nAchievements and responsibilities: Led Nutanix Cloud (Xi) Infrastructure initiatives Managed 5–7 engineers across Berlin & US Drove Config Service, IP Management, Mini-DC & automation projects Contributed to hiring, culture, and org growth\nRelated skills and topics: Leadership, Cloud, Infrastructure, Kubernetes.",
+      "contentHash": "78bce3c8b95b7fc98df28f57ea32e35e20e301447ede313f77dd3f8d87385005",
+      "wordCount": 66,
+      "metadata": {
+        "company": "Nutanix",
+        "role": "Director of Engineering",
+        "start": "Nov 2020",
+        "end": "Dec 2022",
+        "location": "Berlin, Germany",
+        "tags": [
+          "Leadership",
+          "Cloud",
+          "Infrastructure",
+          "Kubernetes"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:nutanix-senior-engineering-manager-aug-2019",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "Senior Engineering Manager — Nutanix",
+      "part": 1,
+      "text": "Experience: Senior Engineering Manager at Nutanix.\nPeriod: Aug 2019 to Oct 2020.\nLocation: Berlin, Germany.\nSummary: Built and scaled teams delivering cloud infrastructure services.\nAchievements and responsibilities: Started and led distributed Xi Cloud engineering team Oversaw planning, design, code reviews, and delivery Hands-on development in Python and Golang\nRelated skills and topics: Engineering Management, Cloud, Python, Golang.",
+      "contentHash": "5d47919ea1c1d023635da9c15d0e8fe5d34ede8a192f7153b08649358ee266e0",
+      "wordCount": 57,
+      "metadata": {
+        "company": "Nutanix",
+        "role": "Senior Engineering Manager",
+        "start": "Aug 2019",
+        "end": "Oct 2020",
+        "location": "Berlin, Germany",
+        "tags": [
+          "Engineering Management",
+          "Cloud",
+          "Python",
+          "Golang"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:nutanix-engineering-manager-jun-2017",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "Engineering Manager — Nutanix",
+      "part": 1,
+      "text": "Experience: Engineering Manager at Nutanix.\nPeriod: Jun 2017 to Jul 2019.\nLocation: Bangalore, India.\nSummary: Led Acropolis VM Control Plane team and expanded ownership across hypervisor services.\nAchievements and responsibilities: Scaled team from 10 to 22 engineers Delivered key features: UEFI, Auditing, Unified Publisher Maintained one of the highest-rated teams internally\nRelated skills and topics: Distributed Systems, Leadership, Virtualization.",
+      "contentHash": "92cddea5bbfc3ff68f9de89ef3846d6bb9691ec6bfc90ee12c004ba5ac3f5656",
+      "wordCount": 59,
+      "metadata": {
+        "company": "Nutanix",
+        "role": "Engineering Manager",
+        "start": "Jun 2017",
+        "end": "Jul 2019",
+        "location": "Bangalore, India",
+        "tags": [
+          "Distributed Systems",
+          "Leadership",
+          "Virtualization"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:nutanix-staff-engineer-aug-2016",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "Staff Engineer — Nutanix",
+      "part": 1,
+      "text": "Experience: Staff Engineer at Nutanix.\nPeriod: Aug 2016 to Jul 2017.\nLocation: Bangalore, India.\nSummary: Technical lead for Uhura platform and DevOps adoption.\nAchievements and responsibilities: Expanded Uhura platform across multiple services Introduced DevOps and automation practices Led multi-threaded backend development\nRelated skills and topics: Python, DevOps, Architecture.",
+      "contentHash": "0a7462e4c24bdfe40bf0e5bee3899714572192a6c1795a3ac912d6127d8ba83c",
+      "wordCount": 48,
+      "metadata": {
+        "company": "Nutanix",
+        "role": "Staff Engineer",
+        "start": "Aug 2016",
+        "end": "Jul 2017",
+        "location": "Bangalore, India",
+        "tags": [
+          "Python",
+          "DevOps",
+          "Architecture"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:nutanix-senior-member-of-technical-staff-oct-2013",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "Senior Member of Technical Staff — Nutanix",
+      "part": 1,
+      "text": "Experience: Senior Member of Technical Staff at Nutanix.\nPeriod: Oct 2013 to Jul 2017.\nLocation: Bangalore, India.\nSummary: Founding engineer for multiple internal platforms and core systems.\nAchievements and responsibilities: Founded Uhura VM management system Led IDF database platform development Built automation and API generation frameworks\nRelated skills and topics: C++, Python, Distributed Systems.",
+      "contentHash": "8332191b1c2aca3c257214c196eb5eeb7abca1e7b46b0c84b1cc94190fbef055",
+      "wordCount": 54,
+      "metadata": {
+        "company": "Nutanix",
+        "role": "Senior Member of Technical Staff",
+        "start": "Oct 2013",
+        "end": "Jul 2017",
+        "location": "Bangalore, India",
+        "tags": [
+          "C++",
+          "Python",
+          "Distributed Systems"
+        ]
+      }
+    },
+    {
+      "id": "portfolio-data:experience:google-software-engineer-aug-2010",
+      "sourceId": "portfolio-data",
+      "sourceType": "portfolio-json",
+      "sourceTitle": "Rahul Paul's portfolio",
+      "sourceUrl": "https://paulrahul.github.io/",
+      "sourcePath": "data.json",
+      "sourceHash": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0",
+      "kind": "experience",
+      "heading": "Software Engineer — Google",
+      "part": 1,
+      "text": "Experience: Software Engineer at Google.\nPeriod: Aug 2010 to Mar 2013.\nLocation: Hyderabad, India.\nSummary: Worked on Google Workspace backend services and internal tools.\nAchievements and responsibilities: Developed Admin Audit Logs for Google Workspace Worked with BigTable, MapReduce, Protocol Buffers Trainer for internal Google technologies\nRelated skills and topics: C++, BigTable, Distributed Systems.",
+      "contentHash": "d1f6582e92f415f1db9d3256d125b8daf2235727738558a7d009493351e8c748",
+      "wordCount": 53,
+      "metadata": {
+        "company": "Google",
+        "role": "Software Engineer",
+        "start": "Aug 2010",
+        "end": "Mar 2013",
+        "location": "Hyderabad, India",
+        "tags": [
+          "C++",
+          "BigTable",
+          "Distributed Systems"
+        ]
+      }
+    },
+    {
+      "id": "resume:1-left",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Recent experience",
+      "part": 1,
+      "text": "EXPERIENCE Software Development Manager, AWS Glue JAN 2023 - JAN 2024 Amazon DC GmbH, Berlin ● Evaluating key initiatives to scale AWS Glue’s core backend orchestration layer ● Led the successful deprecation of AWS Data Pipeline (DPL) ● Led the initial designs for Job Run Queueing (more efficient Job Run scheduling) Director of Engineering NOV 2020 - DEC 2022 Nutanix GmbH, Berlin ● Performed as IC since mid-2021, working on 2 projects - 1) A Kubernetes extension for Nutanix, 2) Refactoring of Nutanix Control Plane-to-Host code layering ● Led Nutanix Cloud (Xi) Infrastructure projects; 5-7 reports (90% Berlin, 10% US); Projects - Config service, IP Management service, Mini-DC, DC Bringup Automation ● Contributed to Berlin site growth - hiring, culture, enablement Senior Engineering Manager AUG 2019 - OCT 2020 Nutanix GmbH, Berlin ● Started a dev. team spread across Berlin and USA for Nutanix's Xi data centers (nutanix.com/products/xi-cloud-services) ● Involved in planning, resource management, design and code reviews, coding (Python, Golang) JUN 2017 - JUL 2019 Nutanix India, Bangalore ● Started managing the “Acropolis” (VM Control Plane) team and helped grow it to 22 members (from 10) ● Increased charter of the team - started owning major features in AHV Hypervisor, Acropolis, OpenStack and “Uhura” (Hypervisor-agnostic VM Management service) ● Released key features like Unified Publisher (tech debt fix of",
+      "contentHash": "50a2afa4f96c8bc2d8221fd4ffaf9c023a684cd3edb11d2bf5667bbd307c29a3",
+      "wordCount": 220,
+      "metadata": {
+        "page": 1,
+        "region": "left"
+      }
+    },
+    {
+      "id": "resume:1-left:part-2",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Recent experience",
+      "part": 2,
+      "text": "of the team - started owning major features in AHV Hypervisor, Acropolis, OpenStack and “Uhura” (Hypervisor-agnostic VM Management service) ● Released key features like Unified Publisher (tech debt fix of legacy publisher design), Auditing, UEFI support",
+      "contentHash": "4995119133ca224021fb003d6087f10ec37e6143535fda172491e4f0878f3f38",
+      "wordCount": 36,
+      "metadata": {
+        "page": 1,
+        "region": "left"
+      }
+    },
+    {
+      "id": "resume:1-right",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Skills and technologies",
+      "part": 1,
+      "text": "SKILLS SUMMARY\nDistributed Systems Good\nCoding Proficient\nDS & Algorithms Great\nTeam Building Proficient\nProduct Strategy Good\nPROGRAMMING LANGUAGES\nPrimary: Python, Golang, C++\n(proficient)\nSecondary: Java, Javascript, C\nFRAMEWORKS\nServer: NodeJS, Servlets (basics)\nClient/Web: VueJS, JSP (basics),\nFlask, Jinja & EJS templates\n(intermediate), CSS, Chrome APIs\n(intermediate)\nData: PostgreSQL, Redis (basics),\nDynamoDB (basics),\nElasticSearch (basics), Protocol\nBuffer (proficient), gRPC\nINFRA\nCloud: AWS (intermediate),\nHeroku (good), Google Cloud\n(intermediate)\nCI/CD: GitHub\nVirtualisation: AHV (proficient),\nESXi\nContainers: Docker (basics),\nKubernetes (good)",
+      "contentHash": "0b017827d500271f36a8645d88436db279655d3e31182dc7ef46176a802c7ef2",
+      "wordCount": 79,
+      "metadata": {
+        "page": 1,
+        "region": "right"
+      }
+    },
+    {
+      "id": "resume:2-left",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Earlier engineering experience",
+      "part": 1,
+      "text": "● One of the \"healthiest\" teams in the org in terms of Culture Amp scores ● Nutanix India site contributions - hiring, college engagements, Engineers' Catchup sessions (concept founder), Nutanix India soccer team and club (founder) Staff Engineer AUG 2016 - JUL 2017 Nutanix India, Bangalore ● Continued tech leading “Uhura” team - more platforms, new features (Python, multi-threading) ● Helped grow the charter and size of the team to 10 members ● Helped Uhura pioneer various quality initiatives - early adopter of DevOps engineering model and Nutest framework (Nutanix's in-house automation framework) Senior MTS OCT 2013 - JUL 2017 Nutanix India, Bangalore ● Started the Hypervisor Agnostic VM Management service (“Uhura”) - TL and only developer for ~6 months (Python, multi-threading) ● TL and major developer for the first release of Uhura - support for both AHV and ESXi VM ops using common interfaces (Python) ● Founding member of the new in-house database team (“IDF”) - implemented various initial features and interfaces (C++, multi-threading, partitioning, event loops, sharding) ● Tech lead Watches (Notifications) feature of IDF (C++, queues, query language processing) ● Tech led and released feature to auto-generate Powershell Cmdlets from Nutanix APIs (Python, Powershell, Swagger) Software Engineer AUG 2010 - MAR 2013 Google India, Hyderabad ● Developer for Google Apps for Business (then GSuite, now Google Workspace",
+      "contentHash": "eb1743a8d306eb88eedf1662c3d1fc591047d31117eb6237d9dfbf857f0f3b7d",
+      "wordCount": 220,
+      "metadata": {
+        "page": 2,
+        "region": "left"
+      }
+    },
+    {
+      "id": "resume:2-left:part-2",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Earlier engineering experience",
+      "part": 2,
+      "text": "Powershell Cmdlets from Nutanix APIs (Python, Powershell, Swagger) Software Engineer AUG 2010 - MAR 2013 Google India, Hyderabad ● Developer for Google Apps for Business (then GSuite, now Google Workspace https://workspace.google.com/) ● Developed the Google Admin Audit logs feature (https://cloud.google.com/logging/docs/audit/gsuite-audit-logging) (C++, Protocol Buffers, GMock, BigTable, MapReduce, RPC) ● Nominated in-house trainer for key Google technologies (BigTable, MapReduce, Protocol Buffers) ● Participated in various in-house Hackathons developing apps in Android, Google Apps Script, JQuery, HTML5",
+      "contentHash": "b107e6c8dbbbdc3284ac03af5e635932bb8bdb9e7321043b554cef8dca22ae60",
+      "wordCount": 74,
+      "metadata": {
+        "page": 2,
+        "region": "left"
+      }
+    },
+    {
+      "id": "resume:2-right",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Concepts, patents, education, and languages",
+      "part": 1,
+      "text": "CONCEPTS (strengths)\nMulti-threading, Design Patterns,\nPartitioning, Async\ncommunication (event-driven,\nRPCs), REST APIs\nPATENTS\nEntity database framework\n(US10223150B2)\nSystem and method for\npreserving entity identifiers\n(US10606630B2)\nEDUCATION\nBITS Pilani - M.S. in Software\nSystems (May 2009, via\ncorrespondence & weekend\nclasses)\nIIIT Calcutta - B.E. in I.T. /\nComputer Science (Jul 2000-04,\nCGPA 8.61)\nBharatiya Vidya Bhavan, Kolkata -\nCBSE (intermediate; 90% aggr.)\nLANGUAGES\nEnglish Proficient\nGerman Beginner (A2 level)\nHindi, Bengali Proficient",
+      "contentHash": "b827aff9e582b00fc1be25730c907c0d45433947e59be106b5c40cf0257fad74",
+      "wordCount": 72,
+      "metadata": {
+        "page": 2,
+        "region": "right"
+      }
+    },
+    {
+      "id": "resume:3-full",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Earlier experience and personal projects",
+      "part": 1,
+      "text": "Oracle India Pvt. Ltd, Hyderabad MAY 2010 - AUG 2010 Project Leader JAN 2008 - MAY 2010 Senior Applications Engineer JUL 2006 - DEC 2012 Applications Engineer ● Part of Supplier Portal application (Oracle Fusion) development team (Java, Oracle ADF, OAF, JDeveloper 11g, Oracle 11g, Oracle 10g) ● Designed and developed the User and Roles provisioning system for the suppliers ● Developed the Supplier Site module which was the key entity for all supplier transactions Infosys Technologies. Ltd, Chennai JUL 2004 - JUL 2006 Software Engineer ● Developed the Asset Management system of a US based railway company (Java, JSP, Servlets, Websphere, IBM DB2) PERSONAL & HACKATHON PROJECTS Serendipity — www.serendi.pt (2021) ● Portal to search strangers’ photos where you appear accidentally ● Full stack development ○ Backend - Golang, Regex parser ○ Frontend - VueJS ○ DB - PostgreSQL ○ Infra - Google Cloud, Heroku, AWS (S3 and CloudFront), Netlify, 24x7.com monitoring ● <insert link to medium.com article> Flash Code Browser — Nutanix Hackathon participant (2016) ● A contextual code browser built on ctags, cscope, pycscope and Elasticsearch; team of 4 members ● Contribution - Elasticsearch modules (Java) Nugle — Nutanix Hackathon winner (2014) ● One-stop employee portal: Directory, Documents, Developer Stats, Oncall Pager setup, Badges; team of 4 members ● Contribution - Idea conception, backend development (Java, Google",
+      "contentHash": "03aeef98d767e5da34bdb99d5f8b3178695637dab0bb47538648d6dbcb249a2b",
+      "wordCount": 220,
+      "metadata": {
+        "page": 3,
+        "region": "full"
+      }
+    },
+    {
+      "id": "resume:3-full:part-2",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Earlier experience and personal projects",
+      "part": 2,
+      "text": "— Nutanix Hackathon winner (2014) ● One-stop employee portal: Directory, Documents, Developer Stats, Oncall Pager setup, Badges; team of 4 members ● Contribution - Idea conception, backend development (Java, Google APIs, Bash scripts)",
+      "contentHash": "05617f1d12cf5476f11e5cf7714c1b5a4288d181d3473e49099753841f338307",
+      "wordCount": 33,
+      "metadata": {
+        "page": 3,
+        "region": "full"
+      }
+    },
+    {
+      "id": "resume:4-full",
+      "sourceId": "resume",
+      "sourceType": "pdf",
+      "sourceTitle": "Rahul Paul's resume",
+      "sourceUrl": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sourcePath": "resume.pdf",
+      "sourceHash": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22",
+      "kind": "resume",
+      "heading": "Personal projects continued",
+      "part": 1,
+      "text": "Brownie Points — Yahoo Hackathon participant (2012)\n● Quiz based Restaurant recommendation and vouchers\n● Contribution - Backend service and APIs (Java)\nMiscellaneous — https://github.com/paulrahul/projects\n● Username recommendation service, Chrome usage analysis\nextension, Stats service, Word game, Playlists consolidator",
+      "contentHash": "abdc50ade85df0a9d5869f50a870ec268080d7c0f2e06bc9ff5dceda9c11f598",
+      "wordCount": 39,
+      "metadata": {
+        "page": 4,
+        "region": "full"
+      }
+    }
+  ]
+}

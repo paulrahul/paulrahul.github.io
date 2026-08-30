@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-08-30T14:49:46.404431+00:00",
+  "chunkCount": 32,
+  "chunkCountsByKind": {
+    "experience": 8,
+    "project": 10,
+    "resume": 9,
+    "skills": 5
+  },
+  "chunkCountsBySource": {
+    "portfolio-data": 23,
+    "resume": 9
+  },
+  "chunking": {
+    "maxWords": 220,
+    "overlapWords": 30
+  },
+  "embedding": {
+    "model": "openai/text-embedding-3-small",
+    "normalized": true,
+    "status": "created",
+    "dimensions": 1536,
+    "reusedChunks": 32,
+    "embeddedChunks": 0,
+    "removedChunks": 0,
+    "requestCount": 0
+  },
+  "sources": [
+    {
+      "id": "portfolio-data",
+      "type": "portfolio-json",
+      "path": "data.json",
+      "title": "Rahul Paul's portfolio",
+      "url": "https://paulrahul.github.io/",
+      "sha256": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0"
+    },
+    {
+      "id": "resume",
+      "type": "pdf",
+      "path": "resume.pdf",
+      "title": "Rahul Paul's resume",
+      "url": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
+      "sha256": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22"
+    }
+  ]
+}
