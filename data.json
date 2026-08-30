@@ -1,4 +1,26 @@
 {
+  "overview": {
+    "location": "Berlin, Germany",
+    "work_mode": "prefer remote or hybrid but open to all for the right opportunity",
+    "job_search_status": "casually seeking. Happy to jump into a fitting opportunity",
+    "preferred_roles": [
+      "backend",
+      "full stack",
+      "AI engineering",
+      "development",
+      "agentic development",
+      "teaching"
+    ],
+    "languages": "German (B1 level), Persian (Beginner), Fluent(read-write-speak) in English, Hindi & Bengali",
+    "preferred_domains": {
+      "experienced": ["automation", "responsible AI"],
+      "interested": ["tech inclusivity", "cleaner environment", "arts", "culture", "education"]
+    },
+    "employment_types": "Permanent, contract, freelance, part-time, consulting, training",
+    "availability": "Immediate",
+    "work_authorization": "Have German PR, Indian citizenship",
+    "relocation_and_travel": "Not looking to relocate but open to occasional travel"
+  },
   "projects": [
     {
       "title": "serendi.pt",

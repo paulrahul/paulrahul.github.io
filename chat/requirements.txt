@@ -1,6 +1,7 @@
 fastapi>=0.115,<1
 numpy>=1.26,<3
 openai>=2,<3
+openai-agents>=0.19.3,<0.20
 pdfplumber>=0.11,<1
 python-dotenv>=1,<2
 uvicorn>=0.34,<1

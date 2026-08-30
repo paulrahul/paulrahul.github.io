@@ -1,15 +1,16 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-08-30T14:49:46.404431+00:00",
-  "chunkCount": 32,
+  "createdAt": "2026-08-30T21:34:44.364886+00:00",
+  "chunkCount": 33,
   "chunkCountsByKind": {
     "experience": 8,
+    "overview": 1,
     "project": 10,
     "resume": 9,
     "skills": 5
   },
   "chunkCountsBySource": {
-    "portfolio-data": 23,
+    "portfolio-data": 24,
     "resume": 9
   },
   "chunking": {
@@ -22,9 +23,9 @@
     "status": "created",
     "dimensions": 1536,
     "reusedChunks": 32,
-    "embeddedChunks": 0,
+    "embeddedChunks": 1,
     "removedChunks": 0,
-    "requestCount": 0
+    "requestCount": 1
   },
   "sources": [
     {
@@ -33,7 +34,7 @@
       "path": "data.json",
       "title": "Rahul Paul's portfolio",
       "url": "https://paulrahul.github.io/",
-      "sha256": "55f396d9e2491f2cc2e0f201ae21f8616448a52498d2b6892fd8fe93e9cc09c0"
+      "sha256": "45abfc214da24c0cb8ef98d52bda643c95d77dbe8095a9bc160c72acaef17760"
     },
     {
       "id": "resume",

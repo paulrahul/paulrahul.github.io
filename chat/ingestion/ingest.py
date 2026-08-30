@@ -275,6 +275,13 @@ def main() -> None:
     )
     print(f"Indexed {len(manifest['sources'])} sources into {manifest['chunkCount']} chunks.")
     print(
+        "Chunks by kind: "
+        + ", ".join(
+            f"{kind}={count}"
+            for kind, count in manifest["chunkCountsByKind"].items()
+        )
+    )
+    print(
         "Chunks by source: "
         + ", ".join(
             f"{source_id}={count}"

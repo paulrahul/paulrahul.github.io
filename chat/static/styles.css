@@ -246,7 +246,7 @@ h1 {
 
 .messages {
   flex: 1;
-  min-height: 270px;
+  min-height: 0;
   max-height: none;
   padding: 1.5rem 1.25rem;
   overflow-y: auto;
@@ -454,6 +454,7 @@ h1 {
 }
 
 .composer {
+  flex-shrink: 0;
   margin: 0 1.25rem;
   padding: 0.4rem 0.45rem 0.4rem 1rem;
   display: flex;
@@ -511,6 +512,34 @@ h1 {
   color: var(--clr-muted);
   font-size: 0.72rem;
   text-align: center;
+}
+
+.privacy-notice {
+  flex: 0 0 auto;
+  max-height: 30%;
+  margin: 0.65rem 1.25rem 0.9rem;
+  overflow-y: auto;
+  color: var(--clr-fg);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.privacy-notice summary {
+  cursor: pointer;
+}
+
+.privacy-notice summary:hover {
+  color: var(--clr-fg-alt);
+}
+
+.privacy-notice summary:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: -2px;
+  border-radius: 3px;
+}
+
+.privacy-notice p {
+  margin: 0.6rem 0 0;
 }
 
 .sr-only {
@@ -571,10 +600,6 @@ h1 {
     padding-right: 1rem;
   }
 
-  .messages {
-    min-height: 250px;
-  }
-
   .composer {
     margin: 5px 1rem;
   }
@@ -582,6 +607,11 @@ h1 {
   .disclaimer {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .privacy-notice {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 
   .preview-label {

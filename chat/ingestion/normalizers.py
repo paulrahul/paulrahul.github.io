@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 from collections.abc import Iterable
 from typing import Any
 
 from .loaders import LoadedSource
+
+
+LOGGER = logging.getLogger(__name__)
 
 
 def _slug(value: str) -> str:
@@ -72,6 +76,62 @@ def _chunks(
             chunk["metadata"] = metadata
         results.append(chunk)
     return results
+
+
+def _field_label(key: str) -> str:
+    words = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", key)
+    return words.replace("_", " ").replace("-", " ").strip().capitalize()
+
+
+def _overview_lines(value: Any, path: str) -> list[str]:
+    """Flatten JSON without losing nested labels, qualifiers or list items."""
+    if isinstance(value, dict):
+        return [
+            line
+            for key, child in value.items()
+            for line in _overview_lines(child, f"{path} — {_field_label(key)}")
+        ]
+    if isinstance(value, list):
+        if all(not isinstance(item, (dict, list)) for item in value):
+            items = [
+                str(item).strip() if not isinstance(item, bool) else str(item).lower()
+                for item in value
+                if item is not None and str(item).strip()
+            ]
+            return [f"{path}: {'; '.join(items)}"] if items else []
+        return [
+            line
+            for number, item in enumerate(value, start=1)
+            for line in _overview_lines(item, f"{path} — Item {number}")
+        ]
+    if value is None or not str(value).strip():
+        return []
+    text = str(value).lower() if isinstance(value, bool) else str(value).strip()
+    return [f"{path}: {text}"]
+
+
+def _normalise_overview(source: LoadedSource, overview: dict[str, Any], max_words: int, overlap: int):
+    lines: list[str] = []
+    fields: list[str] = []
+    for key, value in overview.items():
+        field_lines = _overview_lines(value, _field_label(key))
+        if not field_lines:
+            LOGGER.warning("Overview field '%s' in '%s' is empty; not indexed.", key, source.spec.id)
+            continue
+        fields.append(key)
+        lines.extend(field_lines)
+    if not lines:
+        raise ValueError(f"Portfolio overview in '{source.spec.id}' has no indexable information.")
+    return _chunks(
+        source,
+        record_id=f"{source.spec.id}:overview",
+        kind="overview",
+        heading="Profile overview — current preferences and availability",
+        text="Rahul's profile overview:\n" + "\n".join(lines),
+        max_words=max_words,
+        overlap_words=overlap,
+        metadata={"fields": fields},
+    )
 
 
 def _normalise_projects(source: LoadedSource, projects: Iterable[dict[str, Any]], max_words: int, overlap: int):
@@ -176,12 +236,26 @@ def _normalise_portfolio(source: LoadedSource, max_words: int, overlap: int) -> 
     document = source.content
     if not isinstance(document, dict):
         raise ValueError("Portfolio JSON must contain an object.")
+    unhandled = set(document) - {"overview", "projects", "skills", "experience"}
+    if unhandled:
+        LOGGER.warning(
+            "Portfolio source '%s' has unhandled top-level sections that will NOT be indexed: %s",
+            source.spec.id,
+            ", ".join(sorted(unhandled)),
+        )
+    overview_chunks = []
+    if "overview" in document:
+        overview = document["overview"]
+        if not isinstance(overview, dict):
+            raise ValueError("Portfolio overview must be an object.")
+        overview_chunks = _normalise_overview(source, overview, max_words, overlap)
     projects = document.get("projects")
     skills = document.get("skills")
     experience = document.get("experience")
     if not isinstance(projects, list) or not isinstance(skills, dict) or not isinstance(experience, list):
         raise ValueError("Portfolio JSON must contain projects, skills, and experience sections.")
     return [
+        *overview_chunks,
         *_normalise_projects(source, projects, max_words, overlap),
         *_normalise_skills(source, skills, max_words, overlap),
         *_normalise_experience(source, experience, max_words, overlap),

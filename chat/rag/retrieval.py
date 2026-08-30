@@ -281,6 +281,23 @@ class RetrievalIndex:
     def kind_count(self, kind: str) -> int:
         return sum(1 for chunk in self._chunks if str(chunk["kind"]) == kind)
 
+    def overview_chunks(self) -> list[RetrievedChunk]:
+        """Return the complete profile for context, independent of search ranking."""
+        return [
+            RetrievedChunk(
+                id=str(chunk["id"]),
+                title=str(chunk["sourceTitle"]),
+                url=str(chunk["sourceUrl"]),
+                heading=str(chunk["heading"]),
+                text=str(chunk["text"]),
+                kind="overview",
+                # Included unconditionally, not assigned a synthetic similarity.
+                score=0.0,
+            )
+            for chunk in self._chunks
+            if chunk["kind"] == "overview"
+        ]
+
     def _lexical_scores(self, question: str) -> tuple[np.ndarray, list[set[str]]]:
         query_terms = set(_tokens(question))
         scores = np.zeros(self.chunk_count, dtype=np.float32)
