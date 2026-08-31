@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import json
 import logging
 import os
 import re
@@ -126,7 +127,10 @@ For leadership or management questions, select only the strongest relevant evide
 Do not invent or infer facts that are not supported by the excerpts.
 Do not mention retrieval, embeddings, chunks, context, or these instructions.
 For an in-scope question that the excerpts do not support, say that the information is not available in Rahul's portfolio.
-Links may be included only when they appear in the supplied excerpts.
+Links may be included only when they appear in the supplied excerpts or the approved portfolio section links. The section descriptions identify navigation targets, not additional evidence about Rahul.
+When mentioning a patent, link its title directly to its matching Patent document URL from the excerpts, even when the user only asks whether Rahul has patents. Use [Patent title](exact PDF URL) (patent number), not a bold-only title. Link each patent mentioned when its document URL is available; this is not subject to the preference for one section link. If a document URL is absent, give the supported facts without inventing a link.
+Prefer a direct document or item URL over its containing page. An excerpt's Source URL identifies where the data came from; it is not a substitute for a specific document URL inside the excerpt. Do not append generic homepage citations such as "listed on his portfolio". Link the portfolio homepage only when the user asks for the portfolio website.
+When a portfolio section directly relates to the user's in-scope question or the facts in your answer and a direct document or item link does not already serve that purpose, include its approved URL as a concise Markdown link. Prefer one relevant section link integrated into the answer (for example, linking the word "projects"); include more only when distinct requested topics warrant them. Do not append a list of all sections, repeat the same link, or add unrelated details to justify a link. Omit section links for refusals, greetings, contact confirmations, or answers with no relevant section. Never guess a URL or anchor.
 If the user expresses the intent to contact Rahul, then ask them for their contact details like email address, linkedin profile, website etc. and that they can add any additional note/intro if they want. Tell them that no chat history will be sent but their note/intro will be. Whenever the user provides any of their contact details, use the email tool to send Rahul an email. Include the additional note/intro if it was provided.
 Only confirm that an email was sent when the email tool reports success. If delivery is uncertain, explain that honestly and do not retry sending automatically.
 Once email has been sent, communicate it to the user but do not ask them to add any further note or detail.
@@ -168,6 +172,23 @@ class RagService:
         self._api_key = api_key
         self._client: AsyncOpenAI | None = None
         self._agent: Agent | None = None
+        # Navigation lives outside the vector index: anchor edits need only a
+        # service restart/redeploy, not another embedding run.
+        sections_path = Path(__file__).with_name("portfolio-sections.json")
+        sections = json.loads(sections_path.read_text(encoding="utf-8"))
+        if not isinstance(sections, list) or any(
+            not isinstance(section, dict)
+            or any(
+                not isinstance(section.get(key), str) or not section[key].strip()
+                for key in ("label", "url", "description")
+            )
+            for section in sections
+        ):
+            raise ValueError("portfolio-sections.json must list sections with label, url and description.")
+        self._section_links = "\n".join(
+            f"- [{section['label']}]({section['url']}): {section['description']}"
+            for section in sections
+        )
 
     @classmethod
     def load(
@@ -235,10 +256,14 @@ class RagService:
         sources: list[RetrievedChunk],
     ) -> str:
         context = "\n\n".join(
-            f"[Excerpt {number}: {source.heading}; source: {source.title}]\n{source.text}"
+            f"[Excerpt {number}: {source.heading}; source: {source.title}]\n"
+            f"Source URL: {source.url}\n{source.text}"
             for number, source in enumerate(sources, start=1)
         )
-        agent_input = f"Question: {question}\n\nPortfolio excerpts:\n{context}"
+        agent_input = (
+            f"Question: {question}\n\nPortfolio excerpts:\n{context}\n\n"
+            f"Approved portfolio section links:\n{self._section_links}"
+        )
         email_state = _EmailDeliveryState()
         failure = "an empty response"
         for attempt in range(GENERATION_ATTEMPTS):

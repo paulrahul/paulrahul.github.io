@@ -446,5 +446,35 @@
         "Distributed Systems"
       ]
     }
+  ],
+  "patents": {
+    "US10223150B2": {
+      "url": "https://patentimages.storage.googleapis.com/8e/2d/7d/a9b1a996576c9b/US10223150.pdf",
+      "name": "Entity database framework"
+    },
+    "US10606630B2": {
+      "url": "https://patentimages.storage.googleapis.com/bd/7f/6a/10dcda93545e08/US10606630.pdf",
+      "name": "System and method for preserving entity identifiers"
+    }
+  },
+  "education": [
+    {
+      "title": "M.S. in Software Systems",
+      "institution": "BITS Pilani",
+      "timeline": "June 2007 - May 2009",
+      "notes": "via correspondence & weekend classes"
+    },
+    {
+      "title": "B.E. in Information Technology",
+      "institution": "IIIT Calcutta",
+      "timeline": "Jul 2000-2004",
+      "notes": "CGPA 8.61"
+    },
+    {
+      "title": "Intermediate",
+      "institution": "Bharatiya Vidya Bhavan, Kolkata",
+      "timeline": "2000",
+      "notes": "90% aggr."
+    }
   ]
 }

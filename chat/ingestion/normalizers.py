@@ -232,11 +232,76 @@ def _normalise_experience(source: LoadedSource, experiences: Iterable[dict[str, 
     return chunks
 
 
+def _normalise_patents(source: LoadedSource, patents: dict[str, Any], max_words: int, overlap: int):
+    chunks: list[dict[str, Any]] = []
+    for number, patent in patents.items():
+        if not number.strip() or not isinstance(patent, dict) or any(
+            not isinstance(patent.get(key), str) or not patent[key].strip()
+            for key in ("name", "url")
+        ):
+            raise ValueError(f"Patent '{number}' must have a non-empty number, name and url.")
+        name = patent["name"].strip()
+        url = patent["url"].strip()
+        lines = [
+            f"Patent listed in Rahul's portfolio: {name}.",
+            f"Patent number: {number.strip()}",
+            # This is a reference link, not a request to download or parse the PDF.
+            f"Patent document: {url}",
+        ]
+        for key, value in patent.items():
+            if key not in {"name", "url"}:
+                lines.extend(_overview_lines(value, _field_label(key)))
+        chunks.extend(
+            _chunks(
+                source,
+                record_id=f"{source.spec.id}:patent:{_slug(number)}",
+                kind="patent",
+                heading=f"Patent — {name} ({number.strip()})",
+                text="\n".join(lines),
+                max_words=max_words,
+                overlap_words=overlap,
+                metadata={"patentNumber": number.strip(), "title": name, "details": patent},
+            )
+        )
+    return chunks
+
+
+def _normalise_education(source: LoadedSource, education: list[Any], max_words: int, overlap: int):
+    chunks: list[dict[str, Any]] = []
+    for number, qualification in enumerate(education, start=1):
+        if not isinstance(qualification, dict) or any(
+            not isinstance(qualification.get(key), str) or not qualification[key].strip()
+            for key in ("title", "institution")
+        ):
+            raise ValueError(f"Education entry {number} must have a non-empty title and institution.")
+        title = qualification["title"].strip()
+        institution = qualification["institution"].strip()
+        lines = [f"Rahul's education and academic qualifications: {title} at {institution}."]
+        # Preserve timeline/notes and future fields such as start/end, study mode,
+        # grades or specializations without inferring missing dates or details.
+        for key, value in qualification.items():
+            if key not in {"title", "institution"}:
+                lines.extend(_overview_lines(value, _field_label(key)))
+        chunks.extend(
+            _chunks(
+                source,
+                record_id=f"{source.spec.id}:education:{_slug(f'{institution}-{title}')}",
+                kind="education",
+                heading=f"Education — {title} — {institution}",
+                text="\n".join(lines),
+                max_words=max_words,
+                overlap_words=overlap,
+                metadata={"title": title, "institution": institution, "details": qualification},
+            )
+        )
+    return chunks
+
+
 def _normalise_portfolio(source: LoadedSource, max_words: int, overlap: int) -> list[dict[str, Any]]:
     document = source.content
     if not isinstance(document, dict):
         raise ValueError("Portfolio JSON must contain an object.")
-    unhandled = set(document) - {"overview", "projects", "skills", "experience"}
+    unhandled = set(document) - {"overview", "projects", "skills", "experience", "patents", "education"}
     if unhandled:
         LOGGER.warning(
             "Portfolio source '%s' has unhandled top-level sections that will NOT be indexed: %s",
@@ -254,11 +319,19 @@ def _normalise_portfolio(source: LoadedSource, max_words: int, overlap: int) -> 
     experience = document.get("experience")
     if not isinstance(projects, list) or not isinstance(skills, dict) or not isinstance(experience, list):
         raise ValueError("Portfolio JSON must contain projects, skills, and experience sections.")
+    patents = document.get("patents", {})
+    education = document.get("education", [])
+    if not isinstance(patents, dict):
+        raise ValueError("Portfolio patents must be an object keyed by patent number.")
+    if not isinstance(education, list):
+        raise ValueError("Portfolio education must be a list of qualifications.")
     return [
         *overview_chunks,
         *_normalise_projects(source, projects, max_words, overlap),
         *_normalise_skills(source, skills, max_words, overlap),
         *_normalise_experience(source, experience, max_words, overlap),
+        *_normalise_patents(source, patents, max_words, overlap),
+        *_normalise_education(source, education, max_words, overlap),
     ]
 
 

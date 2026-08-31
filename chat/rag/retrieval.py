@@ -47,6 +47,13 @@ STOP_WORDS = {
     "with",
 }
 TOKEN_ALIASES = {
+    "patents": "patent",
+    "inventions": "invention",
+    "degree": "qualification",
+    "degrees": "qualification",
+    "qualifications": "qualification",
+    "study": "education",
+    "studied": "education",
     "built": "build",
     "builds": "build",
     "building": "build",
@@ -113,6 +120,10 @@ def preferred_kinds_for_question(question: str) -> set[str]:
         preferred.add("skills")
     if words & {"cv", "resume"}:
         preferred.add("resume")
+    if words & {"patent", "invention"}:
+        preferred.add("patent")
+    if words & {"education", "degree", "qualification", "university", "college", "studied"}:
+        preferred.add("education")
     return preferred
 
 

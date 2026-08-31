@@ -1,17 +1,19 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-08-30T21:34:44.364886+00:00",
-  "chunkCount": 33,
+  "createdAt": "2026-08-31T09:54:00.997019+00:00",
+  "chunkCount": 37,
   "chunkCountsByKind": {
+    "education": 3,
     "experience": 8,
     "overview": 1,
+    "patent": 2,
     "project": 10,
-    "resume": 9,
+    "resume": 8,
     "skills": 5
   },
   "chunkCountsBySource": {
-    "portfolio-data": 24,
-    "resume": 9
+    "portfolio-data": 29,
+    "resume": 8
   },
   "chunking": {
     "maxWords": 220,
@@ -22,9 +24,9 @@
     "normalized": true,
     "status": "created",
     "dimensions": 1536,
-    "reusedChunks": 32,
-    "embeddedChunks": 1,
-    "removedChunks": 0,
+    "reusedChunks": 29,
+    "embeddedChunks": 8,
+    "removedChunks": 4,
     "requestCount": 1
   },
   "sources": [
@@ -34,7 +36,7 @@
       "path": "data.json",
       "title": "Rahul Paul's portfolio",
       "url": "https://paulrahul.github.io/",
-      "sha256": "45abfc214da24c0cb8ef98d52bda643c95d77dbe8095a9bc160c72acaef17760"
+      "sha256": "6b7829627de32d3c1fe540e373a2c8fa280c8e212e42cde0cfbb300304f3cd07"
     },
     {
       "id": "resume",
@@ -42,7 +44,7 @@
       "path": "resume.pdf",
       "title": "Rahul Paul's resume",
       "url": "https://github.com/paulrahul/paulrahul.github.io/blob/master/resume.pdf",
-      "sha256": "6af60a099f0515238bc3f1e7626d997fbb339e8660219ac262f8f47e65cfbd22"
+      "sha256": "99c9611e9ba05bbca3cd1aebb3c55bf5f250a5111e8087fe320985f248d289fe"
     }
   ]
 }

@@ -1,0 +1,55 @@
+#!/usr/bin/env node
+
+const { execFileSync } = require('node:child_process');
+const { readFileSync } = require('node:fs');
+const { isIP } = require('node:net');
+
+const chatFile = 'chat/static/chat.js';
+const checked = new Set();
+const git = (...args) => execFileSync('git', args, { encoding: 'utf8' }).trim();
+
+function validateApiUrl(source) {
+  // Deliberately require a plain, one-line string literal: never execute chat.js.
+  // Commented-out alternatives beginning with // are ignored.
+  const declarations = [...source.matchAll(/^[ \t]*(?:const|let|var)\s+CHAT_API_URL\s*=\s*([^\r\n]+)/gm)];
+  const literal = declarations.length === 1 && declarations[0][1].match(/^(["'])([^"'\\\r\n]+)\1\s*;?\s*(?:\/\/.*)?$/);
+  if (!literal) throw new Error('CHAT_API_URL must be a single plain quoted URL on one line.');
+
+  const url = new URL(literal[2]);
+  const host = url.hostname.toLowerCase().replace(/\.$/, '').replace(/^\[|\]$/g, '');
+  if (!['http:', 'https:'].includes(url.protocol)) {
+    throw new Error('CHAT_API_URL must use HTTP or HTTPS.');
+  }
+
+  // URL normalizes shorthand/encoded IPv4, including 127.1 and 2130706433.
+  let local = !host.includes('.') && !isIP(host);
+  local ||= /(^|\.)(localhost|local|internal|test|invalid)$/.test(host);
+  if (isIP(host) === 4) {
+    const [a, b] = host.split('.').map(Number);
+    local ||= a === 0 || a === 10 || a === 127 ||
+      (a === 169 && b === 254) || (a === 172 && b >= 16 && b <= 31) ||
+      (a === 192 && b === 168) || (a === 100 && b >= 64 && b <= 127);
+  } else if (isIP(host) === 6) {
+    local ||= host === '::' || host === '::1' || /^(fc|fd|fe[89ab])/.test(host) ||
+      host.startsWith('::ffff:');
+  }
+  if (local) throw new Error(`CHAT_API_URL points to a local/private host (${host}).`);
+}
+
+try {
+  for (const line of readFileSync(0, 'utf8').trim().split('\n')) {
+    if (!line.trim()) continue;
+    const [ref, sha] = line.trim().split(/\s+/);
+    if (/^0+$/.test(sha) || checked.has(sha)) continue; // Deletion or repeated tip.
+    checked.add(sha);
+    if (!git('ls-tree', '--name-only', sha, '--', chatFile)) continue;
+    try {
+      validateApiUrl(git('show', `${sha}:${chatFile}`));
+    } catch (error) {
+      throw new Error(`${ref} (${sha.slice(0, 8)}): ${error.message}`);
+    }
+  }
+} catch (error) {
+  console.error(`\nPush blocked: ${error.message}\nSet ${chatFile}'s active CHAT_API_URL to the deployed API URL and commit the change before pushing.\n`);
+  process.exit(1);
+}

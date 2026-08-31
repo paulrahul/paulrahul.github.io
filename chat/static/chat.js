@@ -6,11 +6,66 @@ const suggestedQuestions = document.querySelectorAll("[data-question]");
 const maximizeButton = document.querySelector("[data-maximize-chat]");
 const closeButton = document.querySelector("[data-close-chat]");
 const sendButton = form.querySelector("button[type='submit']");
-// const CHAT_API_URL = "http://127.0.0.1:8000/api/chat";
-const CHAT_API_URL = "https://portfolio-chatbot-kohl.vercel.app/api/chat";
+const CHAT_API_URL = "http://127.0.0.1:8000/api/chat";
+// const CHAT_API_URL = "https://portfolio-chatbot-kohl.vercel.app/api/chat";
 
 const isEmbedded = new URLSearchParams(window.location.search).get("embedded") === "1";
 document.body.classList.toggle("is-embedded", isEmbedded);
+
+const PORTFOLIO_URL = new URL("https://paulrahul.github.io/");
+
+// A maximized chat is opened by the iframe, so its opener's top-level window
+// is the portfolio tab. Retain that reference even if the iframe later reloads.
+const originalPortfolioWindow = (() => {
+  try {
+    const candidate = window.parent !== window ? window.parent : window.opener?.top;
+    if (
+      candidate && !candidate.closed &&
+      candidate.location.origin === window.location.origin &&
+      candidate.document.querySelector("[data-chat-widget]")
+    ) return candidate;
+  } catch {
+    // A directly opened chat or an unrelated/cross-origin opener has no owner.
+  }
+  return null;
+})();
+
+const isPortfolioUrl = (value) => {
+  try {
+    const url = new URL(value, window.location.href);
+    return url.origin === PORTFOLIO_URL.origin &&
+      (url.pathname === "/" || url.pathname === "/index.html");
+  } catch {
+    return false;
+  }
+};
+
+const navigateToPortfolio = (value) => {
+  const url = new URL(value, window.location.href);
+  try {
+    if (
+      originalPortfolioWindow && !originalPortfolioWindow.closed &&
+      originalPortfolioWindow.location.origin === window.location.origin &&
+      typeof originalPortfolioWindow.navigatePortfolioFromChat === "function"
+    ) {
+      originalPortfolioWindow.navigatePortfolioFromChat(url.hash);
+      originalPortfolioWindow.focus();
+      return;
+    }
+  } catch {
+    // The original tab may have navigated away or lost access in the meantime.
+  }
+  // No original tab remains: reuse this tab instead of creating another one.
+  window.top.location.assign(url.href);
+};
+
+document.addEventListener("click", (event) => {
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  const link = event.target.closest?.("a[href]");
+  if (!link || !isPortfolioUrl(link.href)) return;
+  event.preventDefault();
+  navigateToPortfolio(link.href);
+});
 
 const applyTheme = (theme = localStorage.getItem("portfolio-theme")) => {
   document.body.classList.toggle("dark", theme === "dark");
@@ -61,8 +116,10 @@ const appendInlineMarkdown = (container, text) => {
         const link = document.createElement("a");
         link.textContent = match[1];
         link.href = match[2];
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
+        if (!isPortfolioUrl(link.href)) {
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        }
         container.append(link);
       } else {
         container.append(document.createTextNode(token));
@@ -243,7 +300,9 @@ suggestedQuestions.forEach((button) => {
 });
 
 maximizeButton.addEventListener("click", () => {
-  window.open(new URL("./", window.location.href), "_blank", "noopener");
+  // This is our own same-origin UI, which needs its opener to return to the
+  // original portfolio. External links still use noopener above.
+  window.open(new URL("./", window.location.href), "_blank");
 });
 
 closeButton.addEventListener("click", () => {

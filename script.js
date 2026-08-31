@@ -118,6 +118,10 @@ const categoryDefinitions = {
   }
 };
 
+function experienceYears() {
+	return new Date().getFullYear() - 2001;
+}
+
 function linkify(text) {
 	const urlRegex = /(https?:\/\/[^\s]+)/g;
 
@@ -568,6 +572,15 @@ const initializeChatWidget = () => {
 		launchLink.blur()
 	}
 
+	// Called synchronously from our same-origin embedded or standalone chat.
+	// Only the anchor changes, preserving the portfolio tab and its current theme.
+	window.navigatePortfolioFromChat = (hash) => {
+		closeWidget()
+		window.location.hash = hash || '#top'
+		// Setting the same hash again may not scroll after a manual scroll.
+		document.getElementById(window.location.hash.slice(1))?.scrollIntoView()
+	}
+
 	launchLink.addEventListener('click', (event) => {
 		if (window.matchMedia('(max-width: 600px)').matches) return
 
@@ -592,6 +605,7 @@ const initializeChatWidget = () => {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+	document.querySelector('[data-experience-years]').textContent = `${experienceYears()} years`;
 	initializeChatWidget();
 
 	try {

@@ -1,0 +1,17 @@
+[
+  {
+    "label": "Projects",
+    "url": "https://paulrahul.github.io/#projects",
+    "description": "Rahul's projects, applications, project categories, and technologies used in his work."
+  },
+  {
+    "label": "Experience",
+    "url": "https://paulrahul.github.io/#experience",
+    "description": "Rahul's career, employers, engineering roles, leadership, team management, and professional achievements."
+  },
+  {
+    "label": "Skills",
+    "url": "https://paulrahul.github.io/#skills",
+    "description": "Rahul's technical skills, programming languages, frameworks, tools, and platforms."
+  }
+]

@@ -1,0 +1,28 @@
+name: Chat API URL guard
+
+on:
+  push:
+  pull_request:
+  merge_group:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-chat-api-url:
+    name: Validate production chat API URL
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check committed chat API URL
+        shell: bash
+        run: |
+          test -f chat/static/chat.js
+          printf 'HEAD %s\n' "$GITHUB_SHA" | node .githooks/pre-push

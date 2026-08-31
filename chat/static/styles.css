@@ -169,6 +169,31 @@ h1 {
   gap: 0.25rem;
 }
 
+.portfolio-link {
+  flex-shrink: 0;
+  margin-left: 0.75rem;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  color: var(--clr-fg);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.portfolio-link:hover {
+  color: var(--clr-fg-alt);
+  background: var(--clr-tag-bg);
+}
+
+.portfolio-link:focus-visible {
+  outline: 2px solid var(--clr-primary);
+  outline-offset: 2px;
+}
+
+.is-embedded .portfolio-link {
+  display: none;
+}
+
 .window-actions button {
   width: 2rem;
   height: 2rem;
