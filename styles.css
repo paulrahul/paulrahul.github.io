@@ -443,6 +443,7 @@
     max-width: 700px;
     line-height: 1.8;
     color: var(--clr-fg);
+    text-align: justify;
   }
 
   .about__desc,

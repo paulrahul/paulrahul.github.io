@@ -1,0 +1,28 @@
+# Rahul Paul — Professional Portfolio
+
+> Rahul Paul is a Berlin-based backend, full-stack and AI engineer with engineering leadership experience at Google, Nutanix and AWS.
+
+Rahul has developed software since 2001 across distributed systems, cloud infrastructure, full-stack products and AI agents. He is interested in backend, full-stack, AI engineering, agentic development, teaching and engineering leadership opportunities. He prefers remote or hybrid work but is open to other arrangements for the right opportunity.
+
+`data.json` is the current, authoritative structured source for portfolio facts. Use the resume for detailed career history. Do not infer facts that are absent from these sources.
+
+## Portfolio
+
+- [Portfolio overview](https://paulrahul.github.io/): Professional introduction and contact options.
+- [Projects](https://paulrahul.github.io/#projects): Selected web, mobile, developer-tool and AI projects.
+- [Skills](https://paulrahul.github.io/#skills): Backend, frontend, AI, cloud and infrastructure skills.
+- [Experience](https://paulrahul.github.io/#experience): Engineering and leadership experience at Google, Nutanix and AWS.
+- [Portfolio data](https://paulrahul.github.io/data.json): Machine-readable projects, skills, experience, patents, education and work preferences.
+- [Resume](https://paulrahul.github.io/resume.pdf): Detailed professional resume in PDF format.
+- [Contact](https://paulrahul.github.io/#contact): Contact Rahul about professional opportunities.
+
+## Patents
+
+- [Entity database framework — US10223150B2](https://patentimages.storage.googleapis.com/8e/2d/7d/a9b1a996576c9b/US10223150.pdf)
+- [System and method for preserving entity identifiers — US10606630B2](https://patentimages.storage.googleapis.com/bd/7f/6a/10dcda93545e08/US10606630.pdf)
+
+## Optional
+
+- [GitHub](https://github.com/paulrahul): Source code and open-source projects.
+- [LinkedIn](https://de.linkedin.com/in/paulrahul): Professional profile.
+- [Writing](https://substack.com/@reorientinglife): Rahul's writing on Substack.
