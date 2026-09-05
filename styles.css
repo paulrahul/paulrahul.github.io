@@ -893,14 +893,14 @@
   }
 
   .project__tag {
-    padding: 0.2rem 0.5rem;
+    padding: 0.25rem 0.55rem;
     font-size: 0.7rem;
-    border-radius: 4px;
+    border-radius: 6px;
     background: transparent;
     color: var(--clr-tag-text);
     border: 1px solid var(--clr-tag-text);
     white-space: nowrap;
-    opacity: 0.7;
+    opacity: 0.8;
     transition: all 0.2s ease;
     cursor: pointer;
   }
@@ -909,8 +909,8 @@
     opacity: 1;
     border-color: var(--clr-muted);
     color: var(--clr-muted);
-    transform: translateY(-2px);
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
     cursor: pointer;
   }
 
@@ -1021,16 +1021,17 @@
     background: transparent;
     color: var(--clr-tag-text);
     border: 1px solid var(--clr-tag-text);
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    padding: 0.25rem 0.55rem;
+    border-radius: 6px;
     font-size: 0.7rem;
     text-transform: lowercase;
-    opacity: 0.7;
+    opacity: 0.8;
+    transition: all 0.2s ease;
   }
 
   .experience__tag:hover {
-    transform: translateY(-2px);
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 8px;
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
     cursor: pointer;
   }
 
