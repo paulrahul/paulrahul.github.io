@@ -8,6 +8,10 @@ Three small Python services sit alongside the static site:
 
 `api/` and `mcp/` both read through the shared `lib/` package, so `data.json` has one source of truth.
 
+## Deploying `api/` and `mcp/` to Vercel
+
+Each is its own Vercel project: **Add New → Project → import this repo → set Root Directory to `api` or `mcp`**. Also enable **Settings → Build and Deployment → "Include source files outside of the Root Directory in the Build Step"** — but that alone is *not* enough to get `lib/` into the deployed function; it only makes `lib/` visible to the build step, not to the actual bundled function. Each service also ships its own `vercel.json` with a `functions.<entrypoint>.includeFiles: "../lib/**"` glob, which is what actually pulls `lib/` into the deployed bundle. Without it, the app crashes at import time with `ImportError: cannot import name 'loader' from 'lib' (unknown location)`.
+
 ## Chat server (`chat/`)
 
 ```bash

@@ -97,16 +97,31 @@ def patents() -> dict[str, Any]:
 
 app = mcp.streamable_http_app()
 
-LANDING_PAGE_HTML = """<!doctype html>
+MCP_PUBLIC_URL = "https://mcp-rho-azure.vercel.app"
+MCP_ENDPOINT_URL = f"{MCP_PUBLIC_URL}/mcp"
+
+MCP_CLIENT_CONFIG = f"""{{
+  "mcpServers": {{
+    "rahul-paul-portfolio": {{
+      "url": "{MCP_ENDPOINT_URL}"
+    }}
+  }}
+}}"""
+
+LANDING_PAGE_HTML = f"""<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>Rahul Paul Portfolio &mdash; MCP server</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-      body { font-family: sans-serif; max-width: 40em; margin: 4em auto; padding: 0 1.5em; line-height: 1.5; color: #2d2d2d; }
-      code { background: #f0f0f0; padding: 0.15em 0.4em; border-radius: 4px; }
-      a { color: #6b9fc9; }
+      body {{ font-family: sans-serif; max-width: 40em; margin: 4em auto; padding: 0 1.5em; line-height: 1.5; color: #2d2d2d; }}
+      code {{ background: #f0f0f0; padding: 0.15em 0.4em; border-radius: 4px; }}
+      a {{ color: #6b9fc9; }}
+      pre {{ background: #f0f0f0; padding: 1em; border-radius: 8px; overflow-x: auto; position: relative; }}
+      pre code {{ background: none; padding: 0; }}
+      .copy-btn {{ position: absolute; top: 0.6em; right: 0.6em; font-size: 0.8rem; padding: 0.3em 0.7em; border: 1px solid #ccc; border-radius: 6px; background: #fff; cursor: pointer; }}
+      .copy-btn:hover {{ background: #eee; }}
     </style>
   </head>
   <body>
@@ -115,7 +130,12 @@ LANDING_PAGE_HTML = """<!doctype html>
       data as tools: <code>overview</code>, <code>projects</code>, <code>skills</code>,
       <code>experience</code>, <code>education</code>, <code>patents</code>.</p>
     <p>Connect an MCP client (Claude Desktop, Claude Code, etc.) to the streamable-HTTP
-      endpoint at <code>/mcp</code>.</p>
+      endpoint at <code><a href="{MCP_ENDPOINT_URL}">{MCP_ENDPOINT_URL}</a></code>.</p>
+
+    <h2>Client config</h2>
+    <p>Paste this into your MCP client's config (e.g. Claude Desktop, Claude Code, Cursor):</p>
+    <pre><button class="copy-btn" data-copy-target="mcp-config" onclick="navigator.clipboard.writeText(document.getElementById('mcp-config').textContent); this.textContent = 'Copied!'; setTimeout(() => this.textContent = 'Copy', 1500);">Copy</button><code id="mcp-config">{MCP_CLIENT_CONFIG}</code></pre>
+
     <p>See <a href="https://github.com/paulrahul/paulrahul.github.io">the source</a>
       for details.</p>
   </body>
