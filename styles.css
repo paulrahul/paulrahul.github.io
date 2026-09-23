@@ -873,6 +873,17 @@
     color: var(--clr-fg);
   }
 
+  .nav__list--dev {
+    justify-content: center;
+    padding-left: 1.5em;
+    /* border-left: 1px solid var(--clr-fg); */
+    opacity: 0.6;
+  }
+
+  .nav__list--dev:hover {
+    opacity: 1;
+  }
+
   .scroll-top {
     display: none;
     position: fixed;
