@@ -2,61 +2,20 @@
 
 from __future__ import annotations
 
-import os
-import sys
-from pathlib import Path
 from typing import Any
 
-# Import the real "mcp" SDK package before touching sys.path below, so it's
-# already cached in sys.modules and can't be shadowed by this directory
-# (also named "mcp") once the repo root is appended to the path.
 from mcp.server.fastmcp import FastMCP
-from mcp.server.transport_security import TransportSecuritySettings
 from starlette.requests import Request
 from starlette.responses import HTMLResponse
 
-def _find_repo_root(start: Path) -> Path:
-    """Locate the directory containing lib/, searching upward from `start`.
+from lib import loader
 
-    Not always one fixed number of parents away: locally server.py sits nested
-    inside mcp/, so lib/ is one level up. Deployed on Vercel, the Root
-    Directory's contents are flattened to the function bundle's root, so
-    server.py's own directory *is* the bundle root and lib/ (if included) may
-    sit right alongside it instead of one level up.
-    """
-    for candidate in (start, *start.parents):
-        if (candidate / "lib" / "loader.py").is_file():
-            return candidate
-    raise RuntimeError(f"Could not locate the 'lib' package searching upward from {start}")
+MCP_PUBLIC_URL = "https://mcp-rho-azure.vercel.app"
+MCP_ENDPOINT_URL = f"{MCP_PUBLIC_URL}/mcp"
 
-
-APP_DIR = Path(__file__).resolve().parent
-REPO_ROOT = _find_repo_root(APP_DIR)
-# Appended (not inserted at index 0) so site-packages resolve first; avoids this
-# directory ever shadowing a same-named third-party package such as "mcp" itself.
-if str(REPO_ROOT) not in sys.path:
-    sys.path.append(str(REPO_ROOT))
-
-from lib import loader  # noqa: E402
-
-
-def _transport_security() -> TransportSecuritySettings | None:
-    """Opt-in override for local tunnel testing (ngrok/cloudflared).
-
-    The SDK's default DNS-rebinding protection only allows Host headers of
-    "localhost"/"127.0.0.1", which rejects requests arriving through a tunnel
-    domain. Leave PORTFOLIO_MCP_DISABLE_DNS_REBINDING_PROTECTION unset in any
-    real deployment; returning None here keeps the SDK's own default behavior.
-    """
-    disabled = os.getenv(
-        "PORTFOLIO_MCP_DISABLE_DNS_REBINDING_PROTECTION", ""
-    ).strip().lower() in ("1", "true", "yes")
-    if not disabled:
-        return None
-    return TransportSecuritySettings(enable_dns_rebinding_protection=False)
-
-
-mcp = FastMCP("Rahul Paul Portfolio", transport_security=_transport_security())
+# uvicorn/Vercel handle binding; a non-localhost host just stops FastMCP from
+# enabling its localhost-only Host-header check, which would reject public requests.
+mcp = FastMCP("Rahul Paul Portfolio", host="0.0.0.0")
 
 
 @mcp.tool()
@@ -96,9 +55,6 @@ def patents() -> dict[str, Any]:
 
 
 app = mcp.streamable_http_app()
-
-MCP_PUBLIC_URL = "https://mcp-rho-azure.vercel.app"
-MCP_ENDPOINT_URL = f"{MCP_PUBLIC_URL}/mcp"
 
 MCP_CLIENT_CONFIG = f"""{{
   "mcpServers": {{

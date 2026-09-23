@@ -3,36 +3,12 @@
 from __future__ import annotations
 
 import os
-import sys
-from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-def _find_repo_root(start: Path) -> Path:
-    """Locate the directory containing lib/, searching upward from `start`.
-
-    Not always one fixed number of parents away: locally app.py sits nested
-    inside api/, so lib/ is one level up. Deployed on Vercel, the Root
-    Directory's contents are flattened to the function bundle's root, so
-    app.py's own directory *is* the bundle root and lib/ (if included) may
-    sit right alongside it instead of one level up.
-    """
-    for candidate in (start, *start.parents):
-        if (candidate / "lib" / "loader.py").is_file():
-            return candidate
-    raise RuntimeError(f"Could not locate the 'lib' package searching upward from {start}")
-
-
-APP_DIR = Path(__file__).resolve().parent
-REPO_ROOT = _find_repo_root(APP_DIR)
-# Appended (not inserted at index 0) so site-packages resolve first; avoids this
-# directory ever shadowing a same-named third-party package.
-if str(REPO_ROOT) not in sys.path:
-    sys.path.append(str(REPO_ROOT))
-
-from lib import loader  # noqa: E402
+from lib import loader
 
 DEFAULT_ALLOWED_ORIGINS = (
     "https://paulrahul.github.io",

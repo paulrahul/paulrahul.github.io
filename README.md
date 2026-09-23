@@ -6,11 +6,11 @@ Three small Python services sit alongside the static site:
 - `api/` — REST API exposing `data.json` (overview, projects, skills, experience, education, patents)
 - `mcp/` — MCP server exposing the same data as tools (FastMCP, streamable-HTTP transport)
 
-`api/` and `mcp/` both read through the shared `lib/` package, so `data.json` has one source of truth.
+`api/` and `mcp/` each carry an identical copy of the `lib/` data loader (`api/lib/`, `mcp/lib/`). If you change one, copy it to the other. The loader reads the repo-root `data.json` when it can find it (local dev, a VM checkout). Otherwise it fetches the published copy from `https://paulrahul.github.io/data.json`.
 
 ## Deploying `api/` and `mcp/` to Vercel
 
-Each is its own Vercel project: **Add New → Project → import this repo → set Root Directory to `api` or `mcp`**. Also enable **Settings → Build and Deployment → "Include source files outside of the Root Directory in the Build Step"** — but that alone is *not* enough to get `lib/` into the deployed function; it only makes `lib/` visible to the build step, not to the actual bundled function. Each service also ships its own `vercel.json` with a `functions.<entrypoint>.includeFiles: "../lib/**"` glob, which is what actually pulls `lib/` into the deployed bundle. Without it, the app crashes at import time with `ImportError: cannot import name 'loader' from 'lib' (unknown location)`.
+Each is its own Vercel project: **Add New → Project → import this repo → set Root Directory to `api` or `mcp`**. Vercel only bundles files inside that Root Directory. That's why `lib/` is vendored into each service, and why on Vercel `data.json` comes from the published site: changes to it reach the API/MCP only after GitHub Pages redeploys.
 
 ## Chat server (`chat/`)
 
@@ -46,10 +46,4 @@ uvicorn server:app --reload --port 8020
 
 FastMCP mounts the streamable-HTTP endpoint at `/mcp` by default, so point an MCP client at `http://localhost:8020/mcp`.
 
-To test through a tunnel (e.g. Claude Desktop custom connectors require `https://`, so a plain `http://localhost` URL won't work — use `cloudflared tunnel --url http://localhost:8020` or similar), the SDK's default DNS-rebinding protection will reject the tunnel's Host header. Disable it for that run only:
-
-```bash
-PORTFOLIO_MCP_DISABLE_DNS_REBINDING_PROTECTION=1 uvicorn server:app --reload --port 8020
-```
-
-Leave this unset for any real deployment.
+Claude Desktop custom connectors require `https://`, so to test one against a local server, expose it through a tunnel (e.g. `cloudflared tunnel --url http://localhost:8020`) and use the tunnel URL plus `/mcp`.
