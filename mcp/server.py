@@ -6,7 +6,7 @@ from typing import Any
 
 from mcp.server.fastmcp import FastMCP
 from starlette.requests import Request
-from starlette.responses import HTMLResponse
+from starlette.responses import HTMLResponse, JSONResponse
 
 from lib import loader
 
@@ -111,6 +111,19 @@ async def _landing_page(request: Request) -> HTMLResponse:
 
 
 app.add_route("/", _landing_page, methods=["GET"])
+
+# Ownership proof for the Glama MCP directory; the claim token is meant to be public.
+GLAMA_CLAIM = {
+    "$schema": "https://glama.ai/mcp/schemas/connector.json",
+    "claim": "glama_claim_VuhrLbA7EdBB57BjhnQt4_f6Ob3I8Ka1",
+}
+
+
+async def _glama_claim(request: Request) -> JSONResponse:
+    return JSONResponse(GLAMA_CLAIM)
+
+
+app.add_route("/.well-known/glama.json", _glama_claim, methods=["GET"])
 
 
 __all__ = ["app", "mcp"]
