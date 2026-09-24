@@ -15,7 +15,14 @@ MCP_ENDPOINT_URL = f"{MCP_PUBLIC_URL}/mcp"
 
 # uvicorn/Vercel handle binding; a non-localhost host just stops FastMCP from
 # enabling its localhost-only Host-header check, which would reject public requests.
-mcp = FastMCP("Rahul Paul Portfolio", host="0.0.0.0")
+# Stateless + JSON responses: serverless instances don't share in-memory sessions,
+# so a session created on one instance is "not found" on the next.
+mcp = FastMCP(
+    "Rahul Paul Portfolio",
+    host="0.0.0.0",
+    stateless_http=True,
+    json_response=True,
+)
 
 
 @mcp.tool()
