@@ -16,6 +16,14 @@ Rahul has developed software since 2001 across distributed systems, cloud infras
 - [Resume](https://paulrahul.github.io/resume.pdf): Detailed professional resume in PDF format.
 - [Contact](https://paulrahul.github.io/#contact): Contact Rahul about professional opportunities.
 
+## Agent interfaces
+
+The same `data.json` facts are also available through these programmatic interfaces:
+
+- [MCP server](https://mcp-rho-azure.vercel.app/mcp): Streamable-HTTP MCP endpoint with tools `overview`, `projects`, `skills`, `experience`, `education` and `patents`. Setup instructions: https://mcp-rho-azure.vercel.app/
+- [REST API](https://portfolio-api-chi-one.vercel.app/docs): Interactive docs for GET endpoints `/overview`, `/projects`, `/skills`, `/experience`, `/education` and `/patents`.
+- [OpenAPI spec](https://portfolio-api-chi-one.vercel.app/openapi.json): Machine-readable description of the REST API.
+
 ## Patents
 
 - [Entity database framework — US10223150B2](https://patentimages.storage.googleapis.com/8e/2d/7d/a9b1a996576c9b/US10223150.pdf)
