@@ -29,16 +29,20 @@
       "tags": [
         "social",
         "photos",
-        "web"
+        "web",
+        "nlp"
       ],
       "stack": [
         "Go",
         "Nuxt",
-        "Postgres"
+        "Postgres",
+        "AWS",
+        "Auth0"
       ],
       "liveUrl": "https://serendi.pt/",
       "description": [
-        "Portal to search strangers’ photos where you appear accidentally."
+        "Find candid photos of yourself, possibly taken by strangers",
+        "Hand coded in 2021, revived with AI & launched in Sep 2026"
       ]
     },
     {
@@ -110,7 +114,8 @@
       "description": [
         "Helps users explore trends and insights from their personal music library",
         "Allows intelligent search on your music library using AI",
-        "E.g.: 'list slow French songs with female voice as lead' or 'song from Mali featuring a chorus'"
+        "E.g.: 'list slow French songs with female voice as lead' or 'song from Mali featuring a chorus'",
+        "To be launched: Nov 2026"
       ]
     },
     {

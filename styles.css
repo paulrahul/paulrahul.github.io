@@ -465,6 +465,37 @@
     margin-right: 1em;
   }
 
+  .about__contact {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 1em;
+  }
+
+  .about__dev-links {
+    gap: 0.9em;
+    padding-left: 0.9em;
+    border-left: 1px solid var(--clr-muted);
+  }
+
+  .about__dev-link {
+    color: var(--clr-fg);
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.7;
+  }
+
+  .about__dev-link:hover {
+    opacity: 1;
+  }
+
+  /* The links wrap onto their own line here, where a leading divider looks stray. */
+  @media (max-width: 480px) {
+    .about__dev-links {
+      padding-left: 0;
+      border-left: 0;
+    }
+  }
+
   .projects__grid {
     max-width: 1100px;
     margin: 0 auto;
@@ -871,17 +902,6 @@
     font-size: 0.875rem;
     font-weight: 700;
     color: var(--clr-fg);
-  }
-
-  .nav__list--dev {
-    justify-content: center;
-    padding-left: 1.5em;
-    /* border-left: 1px solid var(--clr-fg); */
-    opacity: 0.6;
-  }
-
-  .nav__list--dev:hover {
-    opacity: 1;
   }
 
   .scroll-top {
