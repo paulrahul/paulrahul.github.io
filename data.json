@@ -96,8 +96,8 @@
       ]
     },
     {
-      "title": "sonicsense.space",
-      "image": "img/sonicsense.png",
+      "title": "whatsongwasthat.click",
+      "image": "img/whatsongwasthat.png",
       "tagline": "Intelligent search and trends of personal music library",
       "tags": [
         "ai",
@@ -111,7 +111,7 @@
         "OpenAI",
         "Postgres"
       ],
-      "liveUrl": "https://sonicsense.space/",
+      "liveUrl": "https://whatsongwasthat.click/",
       "description": [
         "Helps users explore trends and insights from their personal music library",
         "Allows intelligent search on your music library using AI",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-08-31T09:54:00.997019+00:00",
+  "createdAt": "2026-09-30T07:54:07.531675+00:00",
   "chunkCount": 37,
   "chunkCountsByKind": {
     "education": 3,
@@ -24,9 +24,9 @@
     "normalized": true,
     "status": "created",
     "dimensions": 1536,
-    "reusedChunks": 29,
-    "embeddedChunks": 8,
-    "removedChunks": 4,
+    "reusedChunks": 34,
+    "embeddedChunks": 3,
+    "removedChunks": 3,
     "requestCount": 1
   },
   "sources": [
@@ -36,7 +36,7 @@
       "path": "data.json",
       "title": "Rahul Paul's portfolio",
       "url": "https://paulrahul.github.io/",
-      "sha256": "6b7829627de32d3c1fe540e373a2c8fa280c8e212e42cde0cfbb300304f3cd07"
+      "sha256": "e88a23d9790e5849ef36fbdb337a0f8fffcbea0b3fdc88836ef3a496d7d420ed"
     },
     {
       "id": "resume",
