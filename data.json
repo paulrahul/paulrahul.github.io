@@ -24,7 +24,7 @@
   },
   "projects": [
     {
-      "title": "serendi.pt",
+      "title": "Serendipity",
       "tagline": "Find yourself in others' captures",
       "image": "img/serendipt.png",
       "tags": [
@@ -96,7 +96,7 @@
       ]
     },
     {
-      "title": "whatsongwasthat.click",
+      "title": "WhatSongWasThat!",
       "image": "img/whatsongwasthat.png",
       "tagline": "Intelligent search and trends of personal music library",
       "tags": [

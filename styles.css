@@ -223,7 +223,7 @@
   }
 
   .link:hover::before,
-  .link:focus::before {
+  .link:focus-visible::before {
     width: 100%;
   }
 
@@ -255,7 +255,7 @@
     z-index: 1;
   }
 
-  .btn--outline:focus,
+  .btn--outline:focus-visible,
   .btn--outline:hover {
     color: var(--clr-bg);
   }
@@ -273,7 +273,7 @@
   }
 
   .btn--outline:hover::before,
-  .btn--outline:focus::before {
+  .btn--outline:focus-visible::before {
     right: 0;
   }
 
