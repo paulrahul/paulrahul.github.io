@@ -130,6 +130,123 @@ function linkify(text) {
 	});
 }
 
+const IMAGE_BASE = "img/";
+
+// data.json image paths are relative to IMAGE_BASE; full URLs are used as-is
+function getProjectImages(project) {
+	if (!Array.isArray(project.images)) return [];
+	return project.images.map(src => /^(https?:)?\/\//.test(src) ? src : IMAGE_BASE + src);
+}
+
+// Corner hint; its click bubbles up to the card, which does the flip.
+function flipButton(label, icon) {
+	const btn = createEl("button", "project__flip");
+	btn.type = "button";
+	btn.innerHTML = `<i class="fas ${icon}" aria-hidden="true"></i><span>${label}</span>`;
+	return btn;
+}
+
+function mediaButton(className, icon, label, onClick) {
+	const btn = createEl("button", `media-btn ${className}`);
+	btn.type = "button";
+	btn.setAttribute("aria-label", label);
+	btn.innerHTML = `<i class="fas ${icon}" aria-hidden="true"></i>`;
+	btn.addEventListener("click", (e) => {
+		e.stopPropagation();
+		onClick();
+	});
+	return btn;
+}
+
+function addSwipe(el, onSwipe) {
+	let startX = null;
+	el.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+	el.addEventListener("touchend", (e) => {
+		if (startX === null) return;
+		const dx = e.changedTouches[0].clientX - startX;
+		startX = null;
+		if (Math.abs(dx) > 40) onSwipe(dx < 0 ? 1 : -1);
+	});
+}
+
+function buildCarousel(figure, images, title) {
+	let index = 0;
+
+	const img = document.createElement("img");
+	img.style.objectFit = "contain";
+	figure.appendChild(img);
+
+	const show = (i) => {
+		index = (i + images.length) % images.length;
+		img.src = images[index];
+		img.alt = images.length > 1 ? `${title} (${index + 1} of ${images.length})` : title;
+	};
+
+	figure.appendChild(mediaButton("media-btn--expand", "fa-expand", "Enlarge image", () => {
+		openLightbox(images, index, title, show);
+	}));
+
+	if (images.length > 1) {
+		figure.append(
+			mediaButton("media-btn--prev", "fa-chevron-left", "Previous image", () => show(index - 1)),
+			mediaButton("media-btn--next", "fa-chevron-right", "Next image", () => show(index + 1))
+		);
+		addSwipe(figure, (step) => show(index + step));
+	}
+
+	show(0);
+}
+
+let lightbox = null;
+
+function getLightbox() {
+	if (lightbox) return lightbox;
+
+	const dialog = createEl("dialog", "lightbox");
+	const img = createEl("img", "lightbox__img");
+	const counter = createEl("div", "lightbox__counter");
+	const state = { images: [], index: 0, title: "", onChange: null };
+
+	const show = (i) => {
+		state.index = (i + state.images.length) % state.images.length;
+		img.src = state.images[state.index];
+		img.alt = state.title;
+		counter.textContent = state.images.length > 1 ? `${state.index + 1} / ${state.images.length}` : "";
+		state.onChange?.(state.index);
+	};
+
+	const prev = mediaButton("media-btn--prev", "fa-chevron-left", "Previous image", () => show(state.index - 1));
+	const next = mediaButton("media-btn--next", "fa-chevron-right", "Next image", () => show(state.index + 1));
+	const close = mediaButton("lightbox__close", "fa-xmark", "Close", () => dialog.close());
+
+	dialog.append(img, prev, next, close, counter);
+	document.body.appendChild(dialog);
+
+	// Clicking the empty area around the image closes it
+	dialog.addEventListener("click", (e) => {
+		if (e.target === dialog) dialog.close();
+	});
+	dialog.addEventListener("keydown", (e) => {
+		if (state.images.length < 2) return;
+		if (e.key === "ArrowLeft") show(state.index - 1);
+		if (e.key === "ArrowRight") show(state.index + 1);
+	});
+	addSwipe(dialog, (step) => { if (state.images.length > 1) show(state.index + step); });
+
+	lightbox = { dialog, state, show, prev, next };
+	return lightbox;
+}
+
+function openLightbox(images, index, title, onChange) {
+	const lb = getLightbox();
+	Object.assign(lb.state, { images, title, onChange });
+	const multi = images.length > 1;
+	lb.prev.hidden = !multi;
+	lb.next.hidden = !multi;
+	lb.show(index);
+	lb.dialog.showModal();
+}
+
 function renderProjects() {
 	const grid = document.querySelector(".projects__grid");
 	if (!grid) return;
@@ -158,15 +275,10 @@ function renderProjects() {
 
 	  const h4 = createEl("h4", null, project.title);
 
-	  const figure = createEl("figure", "image is-3by2");
-	  if (project.image) {
-		const img = document.createElement("img");
-		img.src = project.image;
-	  //   if (project.imageFit) {
-	  // 	img.style.objectFit = project.imageFit;
-	  //   }
-		img.style.objectFit = "contain";
-		figure.appendChild(img);
+	  const figure = createEl("figure", "image is-3by2 project__media");
+	  const images = getProjectImages(project);
+	  if (images.length) {
+		buildCarousel(figure, images, project.title);
 	  }
 
 	  const h5 = createEl("h5", null, project.tagline);
@@ -195,7 +307,7 @@ function renderProjects() {
 		stackUl.appendChild(stackSpan);
 	  });
 
-	  content.append(h4, figure, h5, tagsContainer, stackUl);
+	  content.append(flipButton("Details", "fa-rotate"), h4, figure, h5, tagsContainer, stackUl);
 
 	  const linksContainer = createEl("div", "project__links");
 	  if (project.sourceUrl) {
@@ -224,6 +336,8 @@ function renderProjects() {
 
 	  /* ---------- project__alt-content ---------- */
 	  const alt = createEl("div", "project__alt-content");
+	  alt.inert = true;
+	  alt.appendChild(flipButton("Back", "fa-rotate-left"));
 
 	  if (Array.isArray(project.description)) {
 		const ul = document.createElement("ul");
@@ -250,7 +364,9 @@ function renderProjects() {
 		// Ignore clicks on links (or inside links)
 		if (e.target.closest("a")) return;
 
-		projectDiv.classList.toggle("is-expanded");
+		const expanded = projectDiv.classList.toggle("is-expanded");
+		content.inert = expanded;
+		alt.inert = !expanded;
 	  });
 
 	  grid.appendChild(projectDiv);
@@ -454,9 +570,10 @@ function renderCategories() {
 			const item = createEl("div", "category__item");
 
 			// Image
-			if (project.image) {
+			const [firstImage] = getProjectImages(project);
+			if (firstImage) {
 				const img = document.createElement("img");
-				img.src = project.image;
+				img.src = firstImage;
 				img.alt = project.title;
 				img.className = "category__item-image";
 				item.appendChild(img);

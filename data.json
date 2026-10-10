@@ -26,7 +26,7 @@
     {
       "title": "Serendipity",
       "tagline": "Find yourself in others' captures",
-      "image": "img/serendipt.png",
+      "images": ["serendipt.png", "serendipt1.png", "serendipt3.png"],
       "tags": [
         "social",
         "photos",
@@ -49,7 +49,7 @@
     {
       "title": "Saral",
       "tagline": "Technology made simple, so no one is left behind",
-      "image": "img/saral.png",
+      "images": ["saral.png"],
       "tags": [
         "education",
         "ai",
@@ -74,7 +74,7 @@
     },
     {
       "title": "Nazarriya",
-      "image": "img/nr1.png",
+      "images": ["nr1.png"],
       "tagline": "Creating safe spaces for young men to grow, reflect, and redefine masculinity",
       "tags": [
         "mobile",
@@ -97,7 +97,7 @@
     },
     {
       "title": "WhatSongWasThat!",
-      "image": "img/whatsongwasthat.png",
+      "images": ["whatsongwasthat.png", "whatsongwasthat1.png", "whatsongwasthat2.png"],
       "tagline": "Intelligent search and trends of personal music library",
       "tags": [
         "ai",
@@ -121,7 +121,7 @@
     },
     {
       "title": "Tagl",
-      "image": "img/tagl.webp",
+      "images": ["tagl.webp"],
       "tagline": "Organize your digital life",
       "tags": [
         "mobile",
@@ -140,7 +140,7 @@
     },
     {
       "title": "HaNe",
-      "image": "img/hane.jpg",
+      "images": ["hane.jpg"],
       "tagline": "Utility Chrome extension for Hacker News",
       "tags": [
         "extension",
@@ -161,7 +161,7 @@
     },
     {
       "title": "Loopcart",
-      "image": "img/loopcart.png",
+      "images": ["loopcart.png"],
       "tagline": "Smart, repeatable lists",
       "tags": [
         "web",
@@ -178,7 +178,7 @@
     },
     {
       "title": "Sutra",
-      "image": "img/sutra1.png",
+      "images": ["sutra1.png"],
       "tagline": "The smarter browser history",
       "tags": [
         "extension",
@@ -202,7 +202,7 @@
     },
     {
       "title": "Marko",
-      "image": "img/marko.png",
+      "images": ["marko.png"],
       "tagline": "Edit Markdown in rich text",
       "tags": [
         "tool",
@@ -221,17 +221,27 @@
       ]
     },
     {
-      "title": "pipli",
-      "tagline": "Auto install pip dependencies",
+      "title": "Personal Tools",
+      "tagline": "Private tools I’ve built to help with my regular workflows",
+      "images": ["toolio.png", "berozgar.png", "spiel.png"],
       "tags": [
         "tool",
+        "ai",
         "cli"
       ],
       "stack": [
-        "Python"
+        "LangGraph",
+        "Tavily",
+        "FastAPI",
+        "Playwright"
       ],
-      "liveUrl": "https://pypi.org/project/pipli/",
-      "description": "Auto install pip dependencies needed for a given command to run successfully"
+      "description": [
+        "Berozgar - a job postings dashboard using AI to fetch information about the company",
+        "Geld - a personal expense & finance  monitoring tool; uses AI for expense categorisation",
+        "Toolio - a local web tool launcher",
+        "Spiel - a personal German language quiz game; uses AI to fetch translations and Jev for answer scoring",
+        "Donnie - a customised Chrome browser reading extension; allows theme toggling, excerpts capturing, bookmarking last read point"
+      ]
     }
   ],
   "skills": {
@@ -277,7 +287,9 @@
         "Claude Code",
         "n8n",
         "Agents",
-        "LangGraph"
+        "LangGraph",
+        "Jev",
+        "CrewAI"
       ]
     },
     "Cloud & Infra": {

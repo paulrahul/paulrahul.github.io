@@ -196,9 +196,18 @@ def _normalise_experience(source: LoadedSource, experiences: Iterable[dict[str, 
         role = str(experience.get("role") or "Role not specified").strip()
         start = str(experience.get("start") or "").strip()
         end = str(experience.get("end") or "").strip()
-        lines = [f"Experience: {role} at {company}."]
-        if start or end:
-            lines.append(f"Period: {start} to {end}.".replace("  ", " "))
+        if experience.get("company"):
+            lines = [f"Experience: {role} at {company}."]
+            if start or end:
+                lines.append(f"Period: {start} to {end}.".replace("  ", " "))
+        else:
+            # No employer means a career break; word it so questions about a
+            # gap in employment find this entry
+            lines = [
+                f"Career gap / career break ({role}): Rahul has not been in paid employment "
+                f"from {start} to {end} (time off work, sabbatical, gap in employment).",
+                "During this period:",
+            ]
         if experience.get("location"):
             lines.append(f"Location: {experience['location']}.")
         if experience.get("description"):

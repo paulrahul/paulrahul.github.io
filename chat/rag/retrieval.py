@@ -104,16 +104,22 @@ def preferred_kinds_for_question(question: str) -> set[str]:
     if words & {"build", "project", "portfolio"}:
         preferred.add("project")
     if words & {
+        "break",
         "career",
         "director",
+        "employed",
         "employment",
+        "gap",
         "hire",
         "hiring",
         "lead",
         "manage",
         "mentor",
         "role",
+        "sabbatical",
         "team",
+        "unemployed",
+        "working",
     }:
         preferred.add("experience")
     if words & {"language", "skill", "stack", "technology"}:
