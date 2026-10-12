@@ -58,5 +58,9 @@ def get_patents() -> dict[str, Any]:
     return _load()["patents"]
 
 
+def get_contact() -> dict[str, Any]:
+    return _load()["contact"]
+
+
 def get_all() -> dict[str, Any]:
     return _load()

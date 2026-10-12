@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import asyncio
+import logging
 from typing import Any
 
 from mcp.server.fastmcp import FastMCP
@@ -9,6 +11,13 @@ from starlette.requests import Request
 from starlette.responses import HTMLResponse, JSONResponse
 
 from lib import loader
+from lib.emailer import send_email
+
+LOGGER = logging.getLogger(__name__)
+
+MAX_NAME_CHARS = 100
+MAX_REPLY_TO_CHARS = 200
+MAX_MESSAGE_CHARS = 2000
 
 MCP_PUBLIC_URL = "https://mcp-rho-azure.vercel.app"
 MCP_ENDPOINT_URL = f"{MCP_PUBLIC_URL}/mcp"
@@ -61,6 +70,70 @@ def patents() -> dict[str, Any]:
     return loader.get_patents()
 
 
+@mcp.tool()
+async def contact(name: str = "", reply_to: str = "", message: str = "") -> dict[str, Any]:
+    """Rahul's contact details (email, LinkedIn, portfolio), with an option to email him directly.
+
+    Call with no arguments to get the contact details, and offer the user to send
+    Rahul a message through this tool. Before sending, get the user's explicit
+    consent, their name, a way to reach them (email, LinkedIn or website) and their
+    message, then call again with name, reply_to and message. Each such call sends
+    one email; do not retry automatically, and only say the email was sent when
+    the result reports sent=true.
+
+    Args:
+        name: The sender's name.
+        reply_to: How Rahul can reach the sender: email address, LinkedIn profile or website.
+        message: The message or introduction to send Rahul.
+    """
+    details = loader.get_contact()
+    if not message.strip():
+        return {
+            "contact": details,
+            "sent": False,
+            "result": "No message given. To email Rahul directly, call this tool again "
+            "with name, reply_to and message.",
+        }
+
+    # Collapse whitespace so newlines can't leak into the email's Subject header.
+    name = " ".join(name.split())
+    reply_to = reply_to.strip()
+    message = message.strip()
+    problems = []
+    if not name:
+        problems.append("name is required")
+    if not reply_to:
+        problems.append("reply_to is required so Rahul can respond")
+    if len(name) > MAX_NAME_CHARS:
+        problems.append(f"name must be at most {MAX_NAME_CHARS} characters")
+    if len(reply_to) > MAX_REPLY_TO_CHARS:
+        problems.append(f"reply_to must be at most {MAX_REPLY_TO_CHARS} characters")
+    if len(message) > MAX_MESSAGE_CHARS:
+        problems.append(f"message must be at most {MAX_MESSAGE_CHARS} characters")
+    if problems:
+        return {"contact": details, "sent": False, "result": "Not sent: " + "; ".join(problems) + "."}
+
+    subject = f"Portfolio MCP contact from {name}"
+    body = (
+        f"Name: {name}\n"
+        f"Reply to: {reply_to}\n\n"
+        f"Message:\n{message}\n\n"
+        "Sent through the contact tool of the portfolio MCP server."
+    )
+    try:
+        await asyncio.to_thread(send_email, subject, body)
+    except Exception as error:
+        # Don't log credentials or the message body.
+        LOGGER.warning("Portfolio MCP email delivery failed (%s).", type(error).__name__)
+        return {
+            "contact": details,
+            "sent": False,
+            "result": "Email delivery could not be confirmed. Do not claim it was sent "
+            "or retry; share the contact details so the user can reach Rahul directly.",
+        }
+    return {"contact": details, "sent": True, "result": "Email sent to Rahul."}
+
+
 app = mcp.streamable_http_app()
 
 MCP_CLIENT_CONFIG = f"""{{
@@ -91,7 +164,8 @@ LANDING_PAGE_HTML = f"""<!doctype html>
     <h1>Rahul Paul Portfolio &mdash; MCP server</h1>
     <p>This is an MCP (Model Context Protocol) server exposing Rahul Paul's portfolio
       data as tools: <code>overview</code>, <code>projects</code>, <code>skills</code>,
-      <code>experience</code>, <code>education</code>, <code>patents</code>.</p>
+      <code>experience</code>, <code>education</code>, <code>patents</code>, and
+      <code>contact</code>, which also lets an agent email Rahul on a user's behalf.</p>
     <p>Connect an MCP client (Claude Desktop, Claude Code, etc.) to the streamable-HTTP
       endpoint at <code><a href="{MCP_ENDPOINT_URL}">{MCP_ENDPOINT_URL}</a></code>.</p>
 

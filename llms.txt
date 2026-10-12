@@ -20,8 +20,8 @@ Rahul has developed software since 2001 across distributed systems, cloud infras
 
 The same `data.json` facts are also available through these programmatic interfaces:
 
-- [MCP server](https://mcp-rho-azure.vercel.app/mcp): Streamable-HTTP MCP endpoint with tools `overview`, `projects`, `skills`, `experience`, `education` and `patents`. Setup instructions: https://mcp-rho-azure.vercel.app/
-- [REST API](https://portfolio-api-chi-one.vercel.app/docs): Interactive docs for GET endpoints `/overview`, `/projects`, `/skills`, `/experience`, `/education` and `/patents`.
+- [MCP server](https://mcp-rho-azure.vercel.app/mcp): Streamable-HTTP MCP endpoint with tools `overview`, `projects`, `skills`, `experience`, `education`, `patents` and `contact`. `contact` returns Rahul's contact details and can email him a message on a user's behalf, with their consent. Setup instructions: https://mcp-rho-azure.vercel.app/
+- [REST API](https://portfolio-api-chi-one.vercel.app/docs): Interactive docs for GET endpoints `/overview`, `/projects`, `/skills`, `/experience`, `/education`, `/patents` and `/contact`.
 - [OpenAPI spec](https://portfolio-api-chi-one.vercel.app/openapi.json): Machine-readable description of the REST API.
 
 ## Patents
@@ -32,5 +32,5 @@ The same `data.json` facts are also available through these programmatic interfa
 ## Optional
 
 - [GitHub](https://github.com/paulrahul): Source code and open-source projects.
-- [LinkedIn](https://de.linkedin.com/in/paulrahul): Professional profile.
+- [LinkedIn](https://www.linkedin.com/in/paulrahul): Professional profile.
 - [Writing](https://substack.com/@reorientinglife): Rahul's writing on Substack.

@@ -65,6 +65,10 @@ def create_app() -> FastAPI:
     async def patents() -> dict[str, Any]:
         return loader.get_patents()
 
+    @application.get("/contact")
+    async def contact() -> dict[str, Any]:
+        return loader.get_contact()
+
     return application
 
 

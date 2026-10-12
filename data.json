@@ -506,5 +506,10 @@
       "timeline": "2000",
       "notes": "90% aggr."
     }
-  ]
+  ],
+  "contact": {
+    "email": "paul.rahul@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/paulrahul",
+    "portfolio": "https://paulrahul.github.io/"
+  }
 }

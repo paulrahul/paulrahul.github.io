@@ -6,7 +6,7 @@ Three small Python services sit alongside the static site:
 - `api/` — REST API exposing `data.json` (overview, projects, skills, experience, education, patents)
 - `mcp/` — MCP server exposing the same data as tools (FastMCP, streamable-HTTP transport)
 
-`api/` and `mcp/` each carry an identical copy of the `lib/` data loader (`api/lib/`, `mcp/lib/`). If you change one, copy it to the other. The loader reads the repo-root `data.json` when it can find it (local dev, a VM checkout). Otherwise it fetches the published copy from `https://paulrahul.github.io/data.json`.
+`api/` and `mcp/` each carry an identical copy of the data loader (`api/lib/loader.py`, `mcp/lib/loader.py`). If you change one, copy it to the other. The loader reads the repo-root `data.json` when it can find it (local dev, a VM checkout). Otherwise it fetches the published copy from `https://paulrahul.github.io/data.json`.
 
 ## Deploying `api/` and `mcp/` to Vercel
 
@@ -47,3 +47,5 @@ uvicorn server:app --reload --port 8020
 FastMCP mounts the streamable-HTTP endpoint at `/mcp` by default, so point an MCP client at `http://localhost:8020/mcp`.
 
 Claude Desktop custom connectors require `https://`, so to test one against a local server, expose it through a tunnel (e.g. `cloudflared tunnel --url http://localhost:8020`) and use the tunnel URL plus `/mcp`.
+
+The `contact` tool emails Rahul via SMTP. It needs `EMAIL_ADDRESS`, `EMAIL_SMTP_SERVER` and `EMAIL_APP_PASSWORD` in the environment, the same variables the chat server uses: export them locally, or set them in the `mcp` Vercel project's environment variables. `mcp/lib/emailer.py` is a copy of `send_email` in `chat/rag/service.py`; keep the two in sync.

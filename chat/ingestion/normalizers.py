@@ -306,11 +306,38 @@ def _normalise_education(source: LoadedSource, education: list[Any], max_words: 
     return chunks
 
 
+def _normalise_contact(source: LoadedSource, contact: dict[str, Any], max_words: int, overlap: int):
+    lines: list[str] = []
+    for key, value in contact.items():
+        lines.extend(_overview_lines(value, _field_label(key)))
+    if not lines:
+        LOGGER.warning("Contact section in '%s' is empty; not indexed.", source.spec.id)
+        return []
+    return _chunks(
+        source,
+        record_id=f"{source.spec.id}:contact",
+        kind="contact",
+        heading="Contact details — how to reach Rahul",
+        text="How to contact Rahul, get in touch or reach out to him:\n" + "\n".join(lines),
+        max_words=max_words,
+        overlap_words=overlap,
+        metadata={"fields": list(contact)},
+    )
+
+
 def _normalise_portfolio(source: LoadedSource, max_words: int, overlap: int) -> list[dict[str, Any]]:
     document = source.content
     if not isinstance(document, dict):
         raise ValueError("Portfolio JSON must contain an object.")
-    unhandled = set(document) - {"overview", "projects", "skills", "experience", "patents", "education"}
+    unhandled = set(document) - {
+        "overview",
+        "projects",
+        "skills",
+        "experience",
+        "patents",
+        "education",
+        "contact",
+    }
     if unhandled:
         LOGGER.warning(
             "Portfolio source '%s' has unhandled top-level sections that will NOT be indexed: %s",
@@ -334,6 +361,9 @@ def _normalise_portfolio(source: LoadedSource, max_words: int, overlap: int) -> 
         raise ValueError("Portfolio patents must be an object keyed by patent number.")
     if not isinstance(education, list):
         raise ValueError("Portfolio education must be a list of qualifications.")
+    contact = document.get("contact", {})
+    if not isinstance(contact, dict):
+        raise ValueError("Portfolio contact must be an object.")
     return [
         *overview_chunks,
         *_normalise_projects(source, projects, max_words, overlap),
@@ -341,6 +371,7 @@ def _normalise_portfolio(source: LoadedSource, max_words: int, overlap: int) -> 
         *_normalise_experience(source, experience, max_words, overlap),
         *_normalise_patents(source, patents, max_words, overlap),
         *_normalise_education(source, education, max_words, overlap),
+        *_normalise_contact(source, contact, max_words, overlap),
     ]
 
 
