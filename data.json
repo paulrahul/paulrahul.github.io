@@ -242,6 +242,18 @@
         "Spiel - a personal German language quiz game; uses AI to fetch translations and Jev for answer scoring",
         "Donnie - a customised Chrome browser reading extension; allows theme toggling, excerpts capturing, bookmarking last read point"
       ]
+    },
+    {
+      "title": "Herlove",
+      "images": ["herlove.png"],
+      "tagline": "Celebrating maternal love worldwide",
+      "tags": ["web", "social", "people"],
+      "stack": ["TypeScript", "React", "MySQL"],
+      "liveUrl": "https://herlove.mooo.com/",
+      "description":[
+        "A platform to discover lullabies and mother's voice messages from across the world",
+        "Status: Currently stalled project"
+      ]
     }
   ],
   "skills": {

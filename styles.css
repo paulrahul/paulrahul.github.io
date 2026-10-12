@@ -496,17 +496,35 @@
     }
   }
 
+  /* Flex instead of grid so an incomplete last row is centred */
   .projects__grid {
     max-width: 1100px;
     margin: 0 auto;
     /* margin-top: 5rem; */
-    display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(18em, 1fr)); */
-    grid-template-columns: repeat(auto-fill, minmax(18em, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    grid-gap: 1.5em;
     align-items: stretch;
     gap: 2rem;
+    container-type: inline-size;
+  }
+
+  /* 1 / 2 / 3 columns, switching where 18em-wide cards stop fitting */
+  .projects__grid > .project {
+    flex: 0 0 100%;
+    margin: 0;
+  }
+
+  @container (min-width: calc(36em + 2rem)) {
+    .projects__grid > .project {
+      flex-basis: calc((100% - 2rem) / 2);
+    }
+  }
+
+  @container (min-width: calc(54em + 4rem)) {
+    .projects__grid > .project {
+      flex-basis: calc((100% - 4rem) / 3);
+    }
   }
 
   .project {
